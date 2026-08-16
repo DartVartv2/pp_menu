@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#f5f3ec" name="theme-color"/>
+<title>Питание на 4 недели — Артём и Настя</title>
+<style>
+:root{--bg:#f5f3ec;--paper:#fffdf9;--ink:#19231d;--muted:#6b746f;--line:#e0e2dc;--green:#61784a;--shadow:0 18px 55px rgba(31,39,34,.10);--radius:24px;--sidebar:270px;--max:1360px}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{background:radial-gradient(circle at 5% 0%,rgba(97,120,74,.12),transparent 28rem),radial-gradient(circle at 100% 10%,rgba(200,115,46,.08),transparent 30rem),var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.58}
+button{font:inherit} a{color:inherit} img{max-width:100%;display:block}
+h1,h2,h3,h4{margin:0;line-height:1.15;color:#142019}
+h1{font-size:clamp(2.1rem,5vw,4.8rem);letter-spacing:-.045em} h2{font-size:clamp(1.65rem,3vw,2.65rem);letter-spacing:-.03em} h3{font-size:1.28rem} h4{font-size:1rem}
+p{margin:.58rem 0 0} code{background:#f0f1ec;padding:.12rem .35rem;border-radius:7px}
+.muted{color:var(--muted)} .small{font-size:.9rem} .tiny{font-size:.79rem}
+.kicker{font-size:.77rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+.pill{display:inline-flex;align-items:center;border:1px solid #dde2da;background:#f4f6f1;padding:.46rem .72rem;border-radius:999px;font-size:.8rem;font-weight:830;white-space:nowrap}
+.card{background:rgba(255,253,249,.95);border:1px solid rgba(72,82,76,.14);border-radius:var(--radius);box-shadow:var(--shadow)}
+.app{width:min(var(--max),100%);min-height:100vh;margin:auto;display:grid;grid-template-columns:var(--sidebar) 1fr}
+.sidebar{position:sticky;top:0;height:100vh;padding:22px 16px;border-right:1px solid rgba(71,80,74,.12);background:rgba(248,246,240,.88);backdrop-filter:blur(18px);overflow:auto;z-index:30}
+.brand{padding:10px 10px 20px} .brand b{display:block;font-size:1.2rem} .brand span{font-size:.8rem;color:var(--muted)}
+.nav-group{margin:14px 0} .nav-label{padding:0 10px 7px;color:#8a918c;font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;font-weight:900}
+.nav-link{display:flex;align-items:center;gap:10px;text-decoration:none;border-radius:13px;padding:10px 11px;color:#4b5650;font-weight:760;font-size:.9rem;margin:3px 0}
+.nav-link:hover{background:#eceee8;color:#1a211d} .nav-link.active{background:#1f2b24;color:#fff}
+.icon{width:26px;height:26px;border-radius:9px;background:rgba(255,255,255,.12);display:grid;place-items:center;font-size:.78rem;font-weight:950}
+.sidebar-bottom{margin-top:22px;border-top:1px solid var(--line);padding:16px 8px 0}
+.print-btn{width:100%;border:0;cursor:pointer;background:#e9ece6;color:#27332b;border-radius:12px;padding:.72rem .85rem;font-weight:850}
+.main{min-width:0;padding:28px} .page{display:none;animation:fade .16s ease} .page.active{display:block}
+@keyframes fade{from{opacity:.4;transform:translateY(4px)}to{opacity:1;transform:none}}
+.page-shell{max-width:1060px;margin:0 auto 70px} .page-head{margin-bottom:24px;padding:6px 4px} .page-head p{max-width:820px;color:var(--muted)}
+.hero{padding:44px;min-height:420px;display:flex;flex-direction:column;justify-content:center;overflow:hidden;position:relative}
+.hero p{font-size:1.07rem;max-width:760px} .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.action{text-decoration:none;padding:.78rem 1rem;border-radius:13px;border:1px solid #dcded8;background:#fff;font-weight:850} .action.primary{background:var(--green);border-color:var(--green);color:white}
+.stat-grid{margin-top:18px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px} .stat{padding:18px} .stat b{font-size:1.75rem;display:block} .stat span{font-size:.8rem;color:var(--muted)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px} .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px} .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.panel{padding:24px} .panel ul{padding-left:1.15rem;margin:.7rem 0 0} .panel li{margin:.28rem 0}
+.timeline{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-top:18px} .day{padding:14px 12px;min-height:120px;border-radius:15px;border:1px solid var(--line);background:#fffdf9} .day.cook{background:#edf2e7;border-color:#d4dfc9} .day b{display:block;margin-bottom:8px} .day span{display:block;font-size:.79rem;color:var(--muted)}
+.macro-row{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:18px} .macro{border-radius:13px;padding:10px;background:#f1f2ed;text-align:center} .macro b{display:block;font-size:1.05rem} .macro span{font-size:.71rem;color:var(--muted)}
+.steps{counter-reset:step;display:grid;gap:11px;margin-top:14px} .steps div{counter-increment:step;position:relative;padding-left:39px;min-height:30px} .steps div::before{content:counter(step);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;background:#e9ede6;display:grid;place-items:center;font-size:.78rem;font-weight:950}
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px} .chip{border:1px solid #e2e3dd;background:#faf9f5;border-radius:999px;padding:.38rem .6rem;font-size:.76rem;font-weight:750}
+.meal{overflow:hidden;display:grid;grid-template-columns:330px 1fr;margin-bottom:20px} .meal-media{min-height:360px;background:linear-gradient(135deg,#ece8dd,#d8ded3);position:relative;overflow:hidden} .meal-media img{width:100%;height:100%;object-fit:cover} .meal-media.fallback::after{content:"Фото блюда";position:absolute;inset:0;display:grid;place-items:center;color:#6f7972;font-weight:900}
+.meal-body{padding:26px} .meal-top{display:flex;justify-content:space-between;gap:14px;align-items:flex-start} .when{font-size:.76rem;font-weight:900;color:var(--muted);letter-spacing:.06em;margin-bottom:5px}
+.macro-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px} .macro-cards>div{background:#f3f4ef;padding:12px;border-radius:13px;font-size:.84rem} .macro-cards b{display:block;margin-bottom:4px}
+.portion-title{font-weight:900;margin:20px 0 10px;font-size:.95rem}
+.portion-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.one-serving{border:1px solid #e0e2dc;border-radius:16px;overflow:hidden;background:#fff}
+.one-serving-head{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:11px 12px;background:#f5f6f2;font-size:.82rem}
+.one-serving table{width:100%;border-collapse:collapse;font-size:.79rem} .one-serving td{padding:8px 10px;border-top:1px solid #eef0ea;vertical-align:top} .one-serving td:last-child{text-align:right;color:#49544e;font-weight:700}
+.serving-disclaimer{margin-top:9px}
+details{margin-top:18px;padding-top:15px;border-top:1px solid #e4e6df} summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:10px;font-weight:900} summary::-webkit-details-marker{display:none} summary::after{content:"+";font-size:1.4rem;font-weight:500} details[open] summary::after{content:"–"}
+.detail-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:24px;margin-top:16px} .ingredient-list{padding-left:1.15rem} .ingredient-list li{margin:.3rem 0}
+.tipbox{margin-top:16px;padding:13px 14px;border-radius:14px;background:#edf2e7;border:1px solid #dce5d3;font-size:.84rem} .tipbox.soft{background:#f6f3ee;border-color:#e9e3d9} .tipbox p{margin-top:4px}
+.week-strip{border-radius:18px;padding:18px 20px}
+.plate{margin-top:16px;display:grid;grid-template-columns:1.2fr .8fr;gap:9px} .plate>div{border-radius:15px;padding:14px;min-height:92px;display:grid;place-items:center;text-align:center;font-weight:850} .veg{background:#e6efdc;grid-row:span 2} .protein{background:#f4e0d4} .carbs{background:#efe8c9}
+.pantry{display:grid;grid-template-columns:repeat(4,1fr);gap:12px} .pantry div{border:1px solid var(--line);border-radius:15px;background:#fffdf9;padding:15px} .pantry b{display:block}
+.next{margin-top:24px;display:flex;justify-content:flex-end} .next a{text-decoration:none;background:#1f2b24;color:#fff;padding:.75rem .95rem;border-radius:12px;font-weight:850}
+.mobile-top{display:none;position:sticky;top:0;z-index:50;background:rgba(245,243,236,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:10px 12px} .mobile-top .row{display:flex;justify-content:space-between;align-items:center} .menu-btn{border:0;border-radius:10px;padding:.6rem .75rem;background:#1f2b24;color:#fff;font-weight:850}
+.drawer-backdrop{display:none}
+@media(max-width:980px){.app{grid-template-columns:1fr} .sidebar{position:fixed;left:0;top:0;width:min(320px,86vw);transform:translateX(-105%);transition:.2s;z-index:70;box-shadow:var(--shadow)} body.drawer-open .sidebar{transform:translateX(0)} .mobile-top{display:block} .main{padding:16px} .drawer-backdrop{display:block;position:fixed;inset:0;background:rgba(20,28,23,.35);z-index:60;opacity:0;pointer-events:none;transition:.2s} body.drawer-open .drawer-backdrop{opacity:1;pointer-events:auto} .grid-3,.grid-4{grid-template-columns:1fr 1fr} .timeline{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:720px){.hero{padding:28px;min-height:350px} .stat-grid,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr 1fr} .meal{grid-template-columns:1fr} .meal-media{min-height:260px} .detail-grid,.macro-cards,.portion-detail-grid{grid-template-columns:1fr} .macro-row{grid-template-columns:repeat(2,1fr)} .pantry{grid-template-columns:1fr 1fr}}
+@media(max-width:470px){.stat-grid,.grid-2,.grid-3,.grid-4,.pantry{grid-template-columns:1fr} .main{padding:10px} .panel,.meal-body{padding:18px} .one-serving-head{align-items:flex-start;flex-direction:column}}
+@media print{.sidebar,.mobile-top,.drawer-backdrop{display:none!important} .app{display:block} .main{padding:0} .page{display:block!important;page-break-after:always} .page:last-child{page-break-after:auto} .card{box-shadow:none} details>*:not(summary){display:block!important} summary::after{display:none}}
+
+.ingredient-group{margin-top:16px;padding:14px;border:1px solid #e5e7e0;border-radius:14px;background:#fcfbf7}
+.ingredient-group h5{margin:0 0 8px;font-size:.82rem;text-transform:uppercase;letter-spacing:.06em;color:#66716a}
+.ingredient-list.exact{margin:0;padding-left:1.1rem}
+.ingredient-list.exact li{margin:.34rem 0}
+.veg-usage{background:#f1f5eb;border-color:#dce7d3}
+</style>
+</head>
+<body>
+<div class="mobile-top"><div class="row"><button class="menu-btn" id="menuBtn">☰ Меню</button><b>Питание · 4 недели</b></div></div>
+<div class="drawer-backdrop" id="drawerBackdrop"></div>
+<div class="app">
+<aside class="sidebar">
+<div class="brand"><b>Питание на 4 недели</b><span>Артём + Настя · подробная версия</span></div>
+<div class="nav-group"><div class="nav-label">Основное</div>
+<a class="nav-link" href="#home"><span class="icon">⌂</span>Главная</a>
+<a class="nav-link" href="#system"><span class="icon">3×</span>Как готовить</a>
+<a class="nav-link" href="#breakfasts"><span class="icon">☕</span>Завтраки</a>
+<a class="nav-link" href="#lunches"><span class="icon">🥣</span>Обеды</a>
+</div>
+<div class="nav-group"><div class="nav-label">12 рецептов</div>
+<a class="nav-link" href="#week1"><span class="icon">1</span>Неделя 1</a>
+<a class="nav-link" href="#week2"><span class="icon">2</span>Неделя 2</a>
+<a class="nav-link" href="#week3"><span class="icon">3</span>Неделя 3</a>
+<a class="nav-link" href="#week4"><span class="icon">4</span>Неделя 4</a>
+</div>
+<div class="nav-group"><div class="nav-label">Справочник</div>
+<a class="nav-link" href="#rules"><span class="icon">✓</span>Правила и запасы</a>
+</div>
+<div class="sidebar-bottom"><button class="print-btn" onclick="window.print()">Печать / PDF</button></div>
+</aside>
+<main class="main">
+<section class="page" data-route="home" id="page-home"><div class="page-shell">
+<article class="card hero">
+<div class="kicker">Полная версия</div><h1>Питание<br/>на 4 недели</h1>
+<p>Три готовки в неделю, 12 подробных рецептов, отдельные порции для Артёма и Насти, точная раскладка ингредиентов на один контейнер и примерный итоговый вес готовой тарелки.</p>
+<div class="hero-actions"><a class="action primary" href="#week1">Открыть рецепты</a><a class="action" href="#system">Как устроена неделя</a></div>
+</article>
+<div class="stat-grid">
+<div class="card stat"><b>12</b><span>основных блюд</span></div>
+<div class="card stat"><b>3</b><span>готовки в неделю</span></div>
+<div class="card stat"><b>21</b><span>домашняя порция в неделю</span></div>
+<div class="card stat"><b>2 размера</b><span>каждый рецепт рассчитан отдельно</span></div>
+</div>
+<div class="grid-2" style="margin-top:18px">
+<article class="card panel"><div class="kicker">Артём</div><h3>Базовая порция</h3><ul><li>мясо 170–180 г сырого</li><li>крупа 60–70 г сухой</li><li>или картофель 280–300 г</li><li>овощи 300–350 г</li></ul></article>
+<article class="card panel"><div class="kicker">Настя</div><h3>Базовая порция</h3><ul><li>мясо 120–135 г сырого</li><li>крупа 40–50 г сухой</li><li>или картофель 200–220 г</li><li>овощи 220–280 г</li></ul></article>
+</div>
+</div></section>
+<section class="page" data-route="system" id="page-system"><div class="page-shell">
+<div class="page-head"><div class="kicker">Система</div><h2>Как устроена неделя</h2><p>Суббота закрывает выходные и понедельничный обед Насти. Понедельник — два ужина и два её обеда. Среда — оставшиеся три ужина и два обеда Насти.</p></div>
+<div class="grid-3">
+<article class="card panel"><span class="pill">Суббота</span><h3 style="margin-top:12px">7 порций</h3><p><b>3 тебе + 4 Насте</b></p><p class="small muted">Сб ужин · Вс обед · Вс ужин · Пн обед Насти</p></article>
+<article class="card panel"><span class="pill">Понедельник</span><h3 style="margin-top:12px">6 порций</h3><p><b>2 тебе + 4 Насте</b></p><p class="small muted">Пн ужин · Вт обед Насти · Вт ужин · Ср обед Насти</p></article>
+<article class="card panel"><span class="pill">Среда</span><h3 style="margin-top:12px">8 порций</h3><p><b>3 тебе + 5 Насте</b></p><p class="small muted">Ср ужин · Чт обед Насти · Чт ужин · Пт обед Насти · Пт ужин</p></article>
+</div>
+<div class="timeline">
+<div class="day cook"><b>Сб</b><span>Большая готовка + при желании запеканка на завтраки.</span></div><div class="day"><b>Вс</b><span>Ничего не готовим.</span></div><div class="day cook"><b>Пн</b><span>Готовка №2.</span></div><div class="day"><b>Вт</b><span>Только разогрев.</span></div><div class="day cook"><b>Ср</b><span>Готовка №3.</span></div><div class="day"><b>Чт</b><span>Только разогрев.</span></div><div class="day"><b>Пт</b><span>Только разогрев.</span></div>
+</div>
+<article class="card panel" style="margin-top:18px"><h3>Как пользоваться граммовкой в рецептах</h3><p>В каждом блюде теперь есть две таблицы: <b>«Тебе»</b> и <b>«Насте»</b>. Для мяса, круп, картофеля и овощей указано, сколько приходится <b>до готовки</b> и какой вес примерно получится после. Это удобнее, чем пытаться делить уже готовую кастрюлю на глаз.</p><p class="muted small">Готовый вес неизбежно плавает: разная сочность мяса, степень запекания овощей и количество впитавшейся воды дают разницу примерно ±10–15%.</p></article>
+<article class="card panel" style="margin-top:18px"><h3>Как читать точный список ингредиентов</h3><p>В разделе каждого рецепта теперь нет абстрактного «овощи 2 кг»: перечислены <b>конкретные овощи и их вес</b>. Например, «кабачок 450 г, перец 350 г, морковь 300 г…».</p><p class="small muted">Вес указан до приготовления. Для соли, специй и чеснока дополнительно дан бытовой ориентир в ложках/зубчиках.</p></article><div class="next"><a href="#breakfasts">Завтраки →</a></div>
+</div></section>
+<section class="page" data-route="breakfasts" id="page-breakfasts"><div class="page-shell">
+<div class="page-head"><div class="kicker">Утро</div><h2>Завтраки без долгой готовки</h2><p>Основной вариант — овсянка. Запеканки делаются заранее в субботу.</p></div>
+<div class="grid-2">
+<article class="card panel"><h3>Быстрая овсянка</h3><p><b>Тебе:</b> 60 г овсянки · 120 г йогурта · 100–150 г фруктов · 8 г чиа/льна · 5–10 г орехов.</p><p><b>Насте:</b> 45 г овсянки · 100 г йогурта · 80–120 г фруктов · 6 г чиа/льна · 5 г орехов.</p><div class="steps"><div>Залить кипятком.</div><div>Подождать 2–3 минуты.</div><div>Добавить йогурт, фрукт, семена и орехи.</div></div></article>
+<article class="card panel"><h3>Запечённая овсянка</h3><p><b>На 6 порций:</b> 300 г овсянки · 600 мл молока · 4 яйца · 300 г банана · 300 г яблок/ягод · 30 г чиа.</p><div class="steps"><div>Духовка 180 °C.</div><div>Размять бананы, смешать с яйцами и молоком.</div><div>Добавить овсянку, чиа и фрукты.</div><div>Запекать 30–40 минут.</div></div></article>
+<article class="card panel"><h3>Творожная запеканка</h3><p><b>На 6 порций:</b> 800 г творога · 3 яйца · 150 г йогурта · 60 г овсяной муки · 250 г банана · 200 г ягод.</p><div class="steps"><div>Смешать всё кроме ягод.</div><div>Добавить ягоды.</div><div>180 °C, около 40 минут.</div><div>Остудить и разделить на 6 частей.</div></div></article>
+<article class="card panel"><h3>Совсем без готовки</h3><p><b>Творог:</b> тебе 200 г, Насте 150 г + йогурт + фрукт + немного овсянки/орехов.</p><p><b>Йогурт + мюсли:</b> тебе 250 г + 60 г мюсли; Насте 200 г + 45 г мюсли.</p></article>
+</div>
+<div class="next"><a href="#week1">Неделя 1 →</a></div>
+</div></section>
+<section class="page" data-route="week1" id="page-week1">
+<div class="page-shell">
+<div class="page-head week-strip" style="background:#e8efdf">
+<div class="kicker">Неделя 1</div>
+<h2>Тефтели · йогуртовая курица · чили</h2>
+<p>Три готовки: суббота · понедельник · среда. Все граммовки ниже уже рассчитаны под ваши контейнеры.</p>
+</div>
+<article class="card meal">
+<div class="meal-media">
+<img alt="Тефтели из индейки в томатном соусе + гречка + овощи" onerror="this.style.display='none';this.parentElement.classList.add('fallback')" src="images/w1-meatballs.jpg"/>
+</div>
+<div class="meal-body">
+<div class="meal-top">
+<div>
+<div class="when">СУББОТА · 7 ПОРЦИЙ</div>
+<h3>Тефтели из индейки в томатном соусе + гречка + овощи</h3>
+</div>
+<span class="pill">3 тебе · 4 Насте</span>
+</div>
+<div class="chips"><span class="chip">Фарш индейки 1080 г</span><span class="chip">Гречка сухая 410 г</span><span class="chip">Пассата 620 г</span><span class="chip">Кабачок 450 г</span><span class="chip">Сладкий перец 350 г</span><span class="chip">Морковь 300 г</span></div>
+<div class="macro-cards">
+<div><b>Тебе</b><span>≈ 810 ккал · Б 56 г · Ж 31 г · У 77 г · клетчатка ~17 г</span></div>
+<div><b>Насте</b><span>≈ 600 ккал · Б 42 г · Ж 23 г · У 57 г · клетчатка ~13 г</span></div>
+</div>
+<div class="portion-title">Одна порция: сколько реально положить</div>
+<div class="portion-detail-grid"><div class="one-serving"><div class="one-serving-head"><b>Тебе</b><span>готовая порция ≈ <strong>790 г</strong></span></div><table><tbody><tr><td>Фарш индейки</td><td>180 г до готовки → ≈140 г готового</td></tr><tr><td>Гречка сухая</td><td>69 г до готовки → ≈175 г готового</td></tr><tr><td>Пассата</td><td>≈105 г</td></tr><tr><td>Натуральный йогурт</td><td>≈40 г</td></tr><tr><td>Растительное/оливковое масло</td><td>≈9.7 г</td></tr><tr><td>Кабачок</td><td>75 г до готовки → ≈63 г готового</td></tr><tr><td>Сладкий перец</td><td>59 г до готовки → ≈49 г готового</td></tr><tr><td>Морковь</td><td>50 г до готовки → ≈42 г готового</td></tr><tr><td>Брокколи</td><td>59 г до готовки → ≈49 г готового</td></tr><tr><td>Репчатый лук</td><td>34 г до готовки → ≈28 г готового</td></tr><tr><td>Огурцы свежие</td><td>≈46 г</td></tr><tr><td>Помидоры свежие</td><td>≈46 г</td></tr></tbody></table></div><div class="one-serving"><div class="one-serving-head"><b>Насте</b><span>готовая порция ≈ <strong>590 г</strong></span></div><table><tbody><tr><td>Фарш индейки</td><td>135 г до готовки → ≈100 г готового</td></tr><tr><td>Гречка сухая</td><td>51 г до готовки → ≈130 г готового</td></tr><tr><td>Пассата</td><td>≈77 г</td></tr><tr><td>Натуральный йогурт</td><td>≈30 г</td></tr><tr><td>Растительное/оливковое масло</td><td>≈7.2 г</td></tr><tr><td>Кабачок</td><td>56 г до готовки → ≈47 г готового</td></tr><tr><td>Сладкий перец</td><td>43 г до готовки → ≈37 г готового</td></tr><tr><td>Морковь</td><td>37 г до готовки → ≈31 г готового</td></tr><tr><td>Брокколи</td><td>43 г до готовки → ≈37 г готового</td></tr><tr><td>Репчатый лук</td><td>25 г до готовки → ≈21 г готового</td></tr><tr><td>Огурцы свежие</td><td>≈34 г</td></tr><tr><td>Помидоры свежие</td><td>≈34 г</td></tr></tbody></table></div></div>
+<p class="tiny muted serving-disclaimer">
+          Готовый вес приблизительный: мясо и овощи теряют воду, крупы набирают воду. Поэтому ориентируйтесь прежде всего на указанную
+          <b>граммовку до готовки</b>, а готовый вес используйте как удобную проверку при раскладывании.
+        </p>
+<details open="">
+<summary>Полный рецепт</summary>
+<div class="detail-grid">
+<div><h4>Точный список ингредиентов на всю готовку</h4><div class="ingredient-group"><h5>Белок, гарнир и основа</h5><ul class="ingredient-list exact"><li><b>Фарш индейки</b>: 1080 г</li><li><b>Гречка сухая</b>: 410 г</li><li><b>Пассата</b>: 620 г</li><li><b>Натуральный йогурт</b>: 240 г</li><li><b>Растительное/оливковое масло</b>: 58 г</li><li><b>Яйцо</b>: 1 шт</li></ul></div><div class="ingredient-group"><h5>Овощи — конкретно</h5><ul class="ingredient-list exact"><li><b>Кабачок</b>: 450 г</li><li><b>Сладкий перец</b>: 350 г</li><li><b>Морковь</b>: 300 г</li><li><b>Брокколи</b>: 350 г</li><li><b>Репчатый лук</b>: 200 г</li><li><b>Огурцы свежие</b>: 275 г</li><li><b>Помидоры свежие</b>: 275 г</li></ul></div><div class="ingredient-group"><h5>Специи и мелкие добавки</h5><ul class="ingredient-list exact"><li><b>Чеснок</b>: 15 г — ~3 зубчика</li><li><b>Паприка сладкая</b>: 8 г — ~2 ч. л.</li><li><b>Чёрный перец</b>: 2 г — ~1 ч. л. без горки</li><li><b>Соль</b>: 8 г — ~1⅓ ч. л., лучше корректировать по вкусу</li><li><b>Горчица</b>: 20 г — ~1 ст. л.</li><li><b>Укроп/петрушка</b>: 20 г — небольшой пучок</li></ul></div><div class="tipbox veg-usage"><b>Куда идут овощи</b><p>Кабачок, перец, морковь и брокколи — на противень. Лук — в фарш. Огурцы и помидоры оставить свежими и добавлять уже к готовой порции.</p></div></div>
+<div>
+<h4>Пошагово</h4>
+<div class="steps"><div>Разогреть духовку до 195 °C, подготовить большую форму для тефтелей и отдельный противень для овощей.</div><div>Лук нарезать очень мелко. Чеснок измельчить. Если фарш очень влажный, можно добавить 20–30 г овсяных хлопьев на весь объём.</div><div>Смешать фарш, яйцо, лук, половину чеснока, паприку, перец и немного соли. Не вымешивать слишком долго, чтобы тефтели не стали плотными.</div><div>Сформировать 28–32 небольшие тефтели одинакового размера и разложить одним слоем.</div><div>Пассату смешать с оставшимся чесноком, паприкой и перцем. Влить в форму так, чтобы соус покрывал дно и часть тефтелей.</div><div>Кабачок, морковь, перец и брокколи/цветную капусту нарезать крупно. Перемешать примерно с половиной масла и специями.</div><div>Тефтели запекать 25–30 минут. Овощи — 30–35 минут; один раз перемешать. Индейка внутри должна быть полностью готова, без розового центра.</div><div>Гречку промыть, залить 800–850 мл воды, довести до кипения и варить под крышкой на слабом огне 15–20 минут. Затем дать постоять 5 минут.</div><div>Для холодного соуса смешать йогурт, горчицу, зелень и немного чеснока.</div><div>Разложить еду по 7 контейнерам: 3 больших для Артёма и 4 меньших для Насти. Свежие огурцы/помидоры лучше не класть заранее — добавлять перед едой.</div></div>
+<div class="tipbox">
+<b>Разогрев</b>
+<p>Разогревать контейнер без холодного йогуртового соуса 2–3 минуты в микроволновке. Соус и свежие овощи добавить после разогрева.</p>
+</div>
+<div class="tipbox soft">
+<b>Полезная настройка</b>
+<p>Если хочется уменьшить калорийность — сократите гречку или масло, но оставьте мясо и овощи примерно в прежнем объёме.</p>
+</div>
+</div>
+</div>
+</details>
+</div>
+</article>
+<article class="card meal">
+<div class="meal-media">
+<img alt="Курица в йогуртово-чесночном соусе + булгур" onerror="this.style.display='none';this.parentElement.classList.add('fallback')" src="images/w1-yogurt-chicken.jpg"/>
+</div>
+<div class="meal-body">
+<div class="meal-top">
+<div>
+<div class="when">ПОНЕДЕЛЬНИК · 6 ПОРЦИЙ</div>
+<h3>Курица в йогуртово-чесночном соусе + булгур</h3>
+</div>
+<span class="pill">2 тебе · 4 Насте</span>
+</div>
+<div class="chips"><span class="chip">Куриное филе 900 г</span><span class="chip">Булгур сухой 340 г</span><span class="chip">Натуральный йогурт 280 г</span><span class="chip">Кабачок 400 г</span><span class="chip">Сладкий перец 350 г</span><span class="chip">Морковь 300 г</span></div>
+<div class="macro-cards">
+<div><b>Тебе</b><span>≈ 695 ккал · Б 60 г · Ж 15 г · У 76 г · клетчатка ~22 г</span></div>
+<div><b>Насте</b><span>≈ 515 ккал · Б 45 г · Ж 11 г · У 56 г · клетчатка ~16 г</span></div>
+</div>
+<div class="portion-title">Одна порция: сколько реально положить</div>
+<div class="portion-detail-grid"><div class="one-serving"><div class="one-serving-head"><b>Тебе</b><span>готовая порция ≈ <strong>680 г</strong></span></div><table><tbody><tr><td>Куриное филе</td><td>180 г до готовки → ≈140 г готового</td></tr><tr><td>Булгур сухой</td><td>69 г до готовки → ≈170 г готового</td></tr><tr><td>Натуральный йогурт</td><td>≈56 г</td></tr><tr><td>Масло</td><td>≈9.7 г</td></tr><tr><td>Кабачок</td><td>81 г до готовки → ≈68 г готового</td></tr><tr><td>Сладкий перец</td><td>71 г до готовки → ≈59 г готового</td></tr><tr><td>Морковь</td><td>60 г до готовки → ≈51 г готового</td></tr><tr><td>Брокколи</td><td>71 г до готовки → ≈59 г готового</td></tr><tr><td>Репчатый лук</td><td>30 г до готовки → ≈25 г готового</td></tr><tr><td>Огурцы свежие</td><td>≈25 г</td></tr><tr><td>Помидоры свежие</td><td>≈25 г</td></tr></tbody></table></div><div class="one-serving"><div class="one-serving-head"><b>Насте</b><span>готовая порция ≈ <strong>510 г</strong></span></div><table><tbody><tr><td>Куриное филе</td><td>135 г до готовки → ≈100 г готового</td></tr><tr><td>Булгур сухой</td><td>51 г до готовки → ≈125 г готового</td></tr><tr><td>Натуральный йогурт</td><td>≈42 г</td></tr><tr><td>Масло</td><td>≈7.2 г</td></tr><tr><td>Кабачок</td><td>60 г до готовки → ≈50 г готового</td></tr><tr><td>Сладкий перец</td><td>52 г до готовки → ≈44 г готового</td></tr><tr><td>Морковь</td><td>45 г до готовки → ≈38 г готового</td></tr><tr><td>Брокколи</td><td>52 г до готовки → ≈44 г готового</td></tr><tr><td>Репчатый лук</td><td>22 г до готовки → ≈19 г готового</td></tr><tr><td>Огурцы свежие</td><td>≈19 г</td></tr><tr><td>Помидоры свежие</td><td>≈19 г</td></tr></tbody></table></div></div>
+<p class="tiny muted serving-disclaimer">
+          Готовый вес приблизительный: мясо и овощи теряют воду, крупы набирают воду. Поэтому ориентируйтесь прежде всего на указанную
+          <b>граммовку до готовки</b>, а готовый вес используйте как удобную проверку при раскладывании.
+        </p>
+<details open="">
+<summary>Полный рецепт</summary>
+<div class="detail-grid">
+<div><h4>Точный список ингредиентов на всю готовку</h4><div class="ingredient-group"><h5>Белок, гарнир и основа</h5><ul class="ingredient-list exact"><li><b>Куриное филе</b>: 900 г</li><li><b>Булгур сухой</b>: 340 г</li><li><b>Натуральный йогурт</b>: 280 г</li><li><b>Масло</b>: 48 г</li></ul></div><div class="ingredient-group"><h5>Овощи — конкретно</h5><ul class="ingredient-list exact"><li><b>Кабачок</b>: 400 г</li><li><b>Сладкий перец</b>: 350 г</li><li><b>Морковь</b>: 300 г</li><li><b>Брокколи</b>: 350 г</li><li><b>Репчатый лук</b>: 150 г</li><li><b>Огурцы свежие</b>: 125 г</li><li><b>Помидоры свежие</b>: 125 г</li></ul></div><div class="ingredient-group"><h5>Специи и мелкие добавки</h5><ul class="ingredient-list exact"><li><b>Чеснок</b>: 15 г — ~3 зубчика</li><li><b>Горчица</b>: 20 г — ~1 ст. л.</li><li><b>Паприка</b>: 8 г — ~2 ч. л.</li><li><b>Сушёные итальянские травы</b>: 5 г — ~2 ч. л.</li><li><b>Лимонный сок</b>: 30 мл — примерно ½ лимона</li><li><b>Соль</b>: 7 г — ~1 ч. л. с небольшой горкой</li><li><b>Чёрный перец</b>: 2 г — ~1 ч. л. без горки</li></ul></div><div class="tipbox veg-usage"><b>Куда идут овощи</b><p>Кабачок, перец, морковь, брокколи и лук запекать вместе с курицей. Огурцы и помидоры — свежими при подаче.</p></div></div>
+<div>
+<h4>Пошагово</h4>
+<div class="steps"><div>Разогреть духовку до 190 °C.</div><div>Курицу нарезать крупными кусочками примерно одинакового размера.</div><div>Смешать 180–200 г йогурта с чесноком, горчицей, паприкой и перцем. Перемешать с курицей и, если есть время, оставить на 15–20 минут.</div><div>Кабачок, морковь, сладкий перец и брокколи нарезать крупно.</div><div>Разложить курицу и овощи на одном большом противне или в двух формах. Овощи перемешать с маслом и травами.</div><div>Запекать 25–30 минут. Если овощи нарезаны крупно, им можно дать ещё 5 минут после того, как курица готова.</div><div>Булгур залить примерно 680 мл воды, довести до кипения и варить под крышкой 12–15 минут. Выключить и оставить ещё на 5 минут.</div><div>Оставшийся йогурт смешать с лимоном, чесноком и зеленью — это холодный соус для подачи.</div><div>Разложить на 6 контейнеров: 2 больших и 4 меньших.</div></div>
+<div class="tipbox">
+<b>Разогрев</b>
+<p>Булгур и курицу разогревать вместе. Холодный йогуртовый соус добавлять после.</p>
+</div>
+<div class="tipbox soft">
+<b>Полезная настройка</b>
+<p>Если куриная грудка получается сухой, замените часть грудки на филе бедра без кожи.</p>
+</div>
+</div>
+</div>
+</details>
+</div>
+</article>
+<article class="card meal">
+<div class="meal-media">
+<img alt="Чили из индейки и фасоли + бурый рис" onerror="this.style.display='none';this.parentElement.classList.add('fallback')" src="images/w1-chili.jpg"/>
+</div>
+<div class="meal-body">
+<div class="meal-top">
+<div>
+<div class="when">СРЕДА · 8 ПОРЦИЙ</div>
+<h3>Чили из индейки и фасоли + бурый рис</h3>
+</div>
+<span class="pill">3 тебе · 5 Насте</span>
+</div>
+<div class="chips"><span class="chip">Фарш индейки 1000 г</span><span class="chip">Красная фасоль готовая, без жидкости 1180 г</span><span class="chip">Бурый рис сухой 365 г</span><span class="chip">Репчатый лук 250 г</span><span class="chip">Морковь 300 г</span><span class="chip">Сладкий перец 450 г</span></div>
+<div class="macro-cards">
+<div><b>Тебе</b><span>≈ 910 ккал · Б 59 г · Ж 26 г · У 106 г · клетчатка ~22 г</span></div>
+<div><b>Насте</b><span>≈ 670 ккал · Б 43 г · Ж 19 г · У 79 г · клетчатка ~17 г</span></div>
+</div>
+<div class="portion-title">Одна порция: сколько реально положить</div>
+<div class="portion-detail-grid"><div class="one-serving"><div class="one-serving-head"><b>Тебе</b><span>готовая порция ≈ <strong>820 г</strong></span></div><table><tbody><tr><td>Фарш индейки</td><td>150 г до готовки → ≈115 г готового</td></tr><tr><td>Красная фасоль готовая, без жидкости</td><td>≈175 г</td></tr><tr><td>Бурый рис сухой</td><td>54 г до готовки → ≈140 г готового</td></tr><tr><td>Пассата</td><td>≈155 г</td></tr><tr><td>Масло</td><td>≈8.2 г</td></tr><tr><td>Репчатый лук</td><td>37 г до готовки → ≈31 г готового</td></tr><tr><td>Морковь</td><td>45 г до готовки → ≈38 г готового</td></tr><tr><td>Сладкий перец</td><td>67 г до готовки → ≈56 г готового</td></tr><tr><td>Кабачок</td><td>37 г до готовки → ≈31 г готового</td></tr><tr><td>Огурцы свежие</td><td>≈37 г</td></tr><tr><td>Помидоры свежие</td><td>≈37 г</td></tr></tbody></table></div><div class="one-serving"><div class="one-serving-head"><b>Насте</b><span>готовая порция ≈ <strong>610 г</strong></span></div><table><tbody><tr><td>Фарш индейки</td><td>110 г до готовки → ≈84 г готового</td></tr><tr><td>Красная фасоль готовая, без жидкости</td><td>≈130 г</td></tr><tr><td>Бурый рис сухой</td><td>40 г до готовки → ≈105 г готового</td></tr><tr><td>Пассата</td><td>≈115 г</td></tr><tr><td>Масло</td><td>≈6.1 г</td></tr><tr><td>Репчатый лук</td><td>28 г до готовки → ≈23 г готового</td></tr><tr><td>Морковь</td><td>33 г до готовки → ≈28 г готового</td></tr><tr><td>Сладкий перец</td><td>50 г до готовки → ≈42 г готового</td></tr><tr><td>Кабачок</td><td>28 г до готовки → ≈23 г готового</td></tr><tr><td>Огурцы свежие</td><td>≈28 г</td></tr><tr><td>Помидоры свежие</td><td>≈28 г</td></tr></tbody></table></div></div>
+<p class="tiny muted serving-disclaimer">
+          Готовый вес приблизительный: мясо и овощи теряют воду, крупы набирают воду. Поэтому ориентируйтесь прежде всего на указанную
+          <b>граммовку до готовки</b>, а готовый вес используйте как удобную проверку при раскладывании.
+        </p>
+<details open="">
+<summary>Полный рецепт</summary>
+<div class="detail-grid">
+<div><h4>Точный список ингредиентов на всю готовку</h4><div class="ingredient-group"><h5>Белок, гарнир и основа</h5><ul class="ingredient-list exact"><li><b>Фарш индейки</b>: 1000 г</li><li><b>Красная фасоль готовая, без жидкости</b>: 1180 г</li><li><b>Бурый рис сухой</b>: 365 г</li><li><b>Пассата</b>: 1050 г</li><li><b>Масло</b>: 55 г</li></ul></div><div class="ingredient-group"><h5>Овощи — конкретно</h5><ul class="ingredient-list exact"><li><b>Репчатый лук</b>: 250 г</li><li><b>Морковь</b>: 300 г</li><li><b>Сладкий перец</b>: 450 г</li><li><b>Кабачок</b>: 250 г</li><li><b>Огурцы свежие</b>: 250 г</li><li><b>Помидоры свежие</b>: 250 г</li></ul></div><div class="ingredient-group"><h5>Специи и мелкие добавки</h5><ul class="ingredient-list exact"><li><b>Чеснок</b>: 15 г — ~3 зубчика</li><li><b>Паприка сладкая</b>: 8 г — ~2 ч. л.</li><li><b>Паприка копчёная</b>: 8 г — ~2 ч. л.</li><li><b>Зира/кумин</b>: 4 г — ~1 ч. л.</li><li><b>Чили молотый</b>: 1.5 г — ~½ ч. л.; можно меньше</li><li><b>Соль</b>: 8 г — корректировать по вкусу</li><li><b>Чёрный перец</b>: 2 г — ~1 ч. л. без горки</li></ul></div><div class="tipbox veg-usage"><b>Куда идут овощи</b><p>Лук, морковь, перец и кабачок идут прямо в чили. Огурцы и свежие помидоры — отдельной свежей частью к тарелке.</p></div></div>
+<div>
+<h4>Пошагово</h4>
+<div class="steps"><div>Лук, морковь и сладкий перец нарезать мелкими кубиками.</div><div>В большой кастрюле или сотейнике разогреть часть масла и добавить индейку.</div><div>Готовить 7–10 минут, активно разбивая фарш лопаткой.</div><div>Добавить овощи и готовить ещё 5–7 минут.</div><div>Всыпать паприку, копчёную паприку, чеснок, немного зиры и чили. Перемешать 30–40 секунд.</div><div>Влить пассату. Если слишком густо — добавить 100–200 мл воды. Тушить 15 минут.</div><div>Фасоль промыть и добавить в кастрюлю. Тушить ещё 10 минут.</div><div>Бурый рис сварить отдельно по инструкции — обычно 25–35 минут.</div><div>Разложить рис и чили по 8 контейнерам. Для разнообразия один рабочий обед Насти можно сделать с меньшим количеством риса и большим количеством чили.</div></div>
+<div class="tipbox">
+<b>Разогрев</b>
+<p>Чили хорошо переносит разогрев. Если после холодильника стало слишком густым, добавить 1–2 ст. л. воды перед разогревом.</p>
+</div>
+<div class="tipbox soft">
+<b>Полезная настройка</b>
+<p>Это самое сытное блюдо недели. Если порция велика, в первую очередь уменьшайте рис.</p>
+</div>
+</div>
+</div>
+</details>
+</div>
+</article>
+<div class="next"><a href="#week2">Дальше →</a></div>
+</div>
+</section>
+<section class="page" data-route="week2" id="page-week2">
+<div class="page-shell">
+<div class="page-head week-strip" style="background:#f9eadc">
+<div class="kicker">Неделя 2</div>
+<h2>Один противень · болоньезе · фахита-bowl</h2>
+<p>Три готовки: суббота · понедельник · среда. Все граммовки ниже уже рассчитаны под ваши контейнеры.</p>
+</div>
+<article class="card meal">
+<div class="meal-media">
+<img alt="Курица + картофель + овощи одним противнем" onerror="this.style.display='none';this.parentElement.classList.add('fallback')" src="images/w2-sheet-pan.jpg"/>
+</div>
+<div class="meal-body">
+<div class="meal-top">
+<div>
+<div class="when">СУББОТА · 7 ПОРЦИЙ</div>
+<h3>Курица + картофель + овощи одним противнем</h3>
+</div>
+<span class="pill">3 тебе · 4 Насте</span>
+</div>
+<div class="chips"><span class="chip">Куриное филе 1080 г</span><span class="chip">Картофель 1780 г</span><span class="chip">Натуральный йогурт 240 г</span><span class="chip">Кабачок 450 г</span><span class="chip">Морковь 350 г</span><span class="chip">Сладкий перец 350 г</span></div>
+<div class="macro-cards">
+<div><b>Тебе</b><span>≈ 680 ккал · Б 57 г · Ж 15 г · У 73 г · клетчатка ~15 г</span></div>
+<div><b>Насте</b><span>≈ 510 ккал · Б 43 г · Ж 11 г · У 55 г · клетчатка ~12 г</span></div>
+</div>
+<div class="portion-title">Одна порция: сколько реально положить</div>
+<div class="portion-detail-grid"><div class="one-serving"><div class="one-serving-head"><b>Тебе</b><span>готовая порция ≈ <strong>770 г</strong></span></div><table><tbody><tr><td>Куриное филе</td><td>180 г до готовки → ≈140 г готового</td></tr><tr><td>Картофель</td><td>300 г до готовки → ≈270 г готового</td></tr><tr><td>Натуральный йогурт</td><td>≈40 г</td></tr><tr><td>Масло</td><td>≈10 г</td></tr><tr><td>Кабачок</td><td>75 г до готовки → ≈63 г готового</td></tr><tr><td>Морковь</td><td>59 г до готовки → ≈49 г готового</td></tr><tr><td>Сладкий перец</td><td>59 г до готовки → ≈49 г готового</td></tr><tr><td>Брокколи</td><td>59 г до готовки → ≈49 г готового</td></tr><tr><td>Репчатый лук</td><td>34 г до готовки → ≈28 г готового</td></tr><tr><td>Огурцы свежие</td><td>≈39 г</td></tr><tr><td>Помидоры свежие</td><td>≈39 г</td></tr></tbody></table></div><div class="one-serving"><div class="one-serving-head"><b>Насте</b><span>готовая порция ≈ <strong>570 г</strong></span></div><table><tbody><tr><td>Куриное филе</td><td>135 г до готовки → ≈100 г готового</td></tr><tr><td>Картофель</td><td>220 г до готовки → ≈200 г готового</td></tr><tr><td>Натуральный йогурт</td><td>≈30 г</td></tr><tr><td>Масло</td><td>≈7.5 г</td></tr><tr><td>Кабачок</td><td>56 г до готовки → ≈47 г готового</td></tr><tr><td>Морковь</td><td>43 г до готовки → ≈37 г готового</td></tr><tr><td>Сладкий перец</td><td>43 г до готовки → ≈37 г готового</td></tr><tr><td>Брокколи</td><td>43 г до готовки → ≈37 г готового</td></tr><tr><td>Репчатый лук</td><td>25 г до готовки → ≈21 г готового</td></tr><tr><td>Огурцы свежие</td><td>≈29 г</td></tr><tr><td>Помидоры свежие</td><td>≈29 г</td></tr></tbody></table></div></div>
+<p class="tiny muted serving-disclaimer">
+          Готовый вес приблизительный: мясо и овощи теряют воду, крупы набирают воду. Поэтому ориентируйтесь прежде всего на указанную
+          <b>граммовку до готовки</b>, а готовый вес используйте как удобную проверку при раскладывании.
+        </p>
+<details open="">
+<summary>Полный рецепт</summary>
+<div class="detail-grid">
+<div><h4>Точный список ингредиентов на всю готовку</h4><div class="ingredient-group"><h5>Белок, гарнир и основа</h5><ul class="ingredient-list exact"><li><b>Куриное филе</b>: 1080 г</li><li><b>Картофель</b>: 1780 г</li><li><b>Натуральный йогурт</b>: 240 г</li><li><b>Масло</b>: 60 г</li></ul></div><div class="ingredient-group"><h5>Овощи — конкретно</h5><ul class="ingredient-list exact"><li><b>Кабачок</b>: 450 г</li><li><b>Морковь</b>: 350 г</li><li><b>Сладкий перец</b>: 350 г</li><li><b>Брокколи</b>: 350 г</li><li><b>Репчатый лук</b>: 200 г</li><li><b>Огурцы свежие</b>: 235 г</li><li><b>Помидоры свежие</b>: 235 г</li></ul></div><div class="ingredient-group"><h5>Специи и мелкие добавки</h5><ul class="ingredient-list exact"><li><b>Чеснок</b>: 15 г — ~3 зубчика</li><li><b>Паприка</b>: 10 г — ~2½ ч. л.</li><li><b>Розмарин/итальянские травы</b>: 5 г — ~2 ч. л.</li><li><b>Соль</b>: 8 г — по вкусу</li><li><b>Чёрный перец</b>: 2 г — ~1 ч. л. без горки</li></ul></div><div class="tipbox veg-usage"><b>Куда идут овощи</b><p>Картофель, кабачок, морковь, перец и лук запекаются. Брокколи добавляется позже. Огурцы и помидоры остаются свежими.</p></div></div>
+<div>
+<h4>Пошагово</h4>
+<div class="steps"><div>Разогреть духовку до 200 °C и застелить большой противень пергаментом.</div><div>Картофель хорошо вымыть; очищать не обязательно. Нарезать дольками одинакового размера.</div><div>Смешать картофель примерно с половиной масла, паприкой, чесноком и травами. Поставить в духовку на 15 минут раньше остальных продуктов.</div><div>Курицу нарезать крупными кусками. Морковь, перец и кабачок — также крупно.</div><div>Достать противень, добавить курицу и овощи, перемешать с оставшимся маслом и специями.</div><div>Вернуть в духовку ещё на 25–30 минут. Брокколи добавлять только на последние 15–20 минут.</div><div>Проверить курицу: внутри полностью белая, сок прозрачный.</div><div>Йогурт смешать с чесноком и зеленью.</div><div>Разложить на 7 контейнеров. Свежие овощи при желании добавлять уже перед едой.</div></div>
+<div class="tipbox">
+<b>Разогрев</b>
+<p>Разогревать 2–3 минуты. Если картофель кажется сухим, добавить ложку воды в контейнер перед разогревом.</p>
+</div>
+<div class="tipbox soft">
+<b>Полезная настройка</b>
+<p>Самый простой рецепт месяца: минимум посуды и почти вся работа делает духовка.</p>
+</div>
+</div>
+</div>
+</details>
+</div>
+</article>
+<article class="card meal">
+<div class="meal-media">
+<img alt="Цельнозерновая болоньезе из индейки" onerror="this.style.display='none';this.parentElement.classList.add('fallback')" src="images/w2-bolognese.jpg"/>
+</div>
+<div class="meal-body">
+<div class="meal-top">
+<div>
+<div class="when">ПОНЕДЕЛЬНИК · 6 ПОРЦИЙ</div>
+<h3>Цельнозерновая болоньезе из индейки</h3>
+</div>
+<span class="pill">2 тебе · 4 Насте</span>
+</div>
+<div class="chips"><span class="chip">Фарш индейки 840 г</span><span class="chip">Цельнозерновая паста сухая 370 г</span><span class="chip">Пассата 780 г</span><span class="chip">Репчатый лук 200 г</span><span class="chip">Морковь 250 г</span><span class="chip">Кабачок 400 г</span></div>
+<div class="macro-cards">
+<div><b>Тебе</b><span>≈ 810 ккал · Б 54 г · Ж 32 г · У 75 г · клетчатка ~15 г</span></div>
+<div><b>Насте</b><span>≈ 600 ккал · Б 39 г · Ж 23 г · У 56 г · клетчатка ~11 г</span></div>
+</div>
+<div class="portion-title">Одна порция: сколько реально положить</div>
+<div class="portion-detail-grid"><div class="one-serving"><div class="one-serving-head"><b>Тебе</b><span>готовая порция ≈ <strong>710 г</strong></span></div><table><tbody><tr><td>Фарш индейки</td><td>170 г до готовки → ≈130 г готового</td></tr><tr><td>Цельнозерновая паста сухая</td><td>75 г до готовки → ≈170 г готового</td></tr><tr><td>Пассата</td><td>≈155 г</td></tr><tr><td>Твёрдый сыр</td><td>≈14 г</td></tr><tr><td>Масло</td><td>≈8.1 г</td></tr><tr><td>Репчатый лук</td><td>40 г до готовки → ≈34 г готового</td></tr><tr><td>Морковь</td><td>50 г до готовки → ≈42 г готового</td></tr><tr><td>Кабачок</td><td>81 г до готовки → ≈68 г готового</td></tr><tr><td>Сладкий перец</td><td>30 г до готовки → ≈25 г готового</td></tr><tr><td>Огурцы свежие</td><td>≈30 г</td></tr><tr><td>Помидоры свежие</td><td>≈30 г</td></tr></tbody></table></div><div class="one-serving"><div class="one-serving-head"><b>Насте</b><span>готовая порция ≈ <strong>530 г</strong></span></div><table><tbody><tr><td>Фарш индейки</td><td>125 г до готовки → ≈95 г готового</td></tr><tr><td>Цельнозерновая паста сухая</td><td>55 г до готовки → ≈125 г готового</td></tr><tr><td>Пассата</td><td>≈115 г</td></tr><tr><td>Твёрдый сыр</td><td>≈10 г</td></tr><tr><td>Масло</td><td>≈6 г</td></tr><tr><td>Репчатый лук</td><td>30 г до готовки → ≈25 г готового</td></tr><tr><td>Морковь</td><td>37 г до готовки → ≈31 г готового</td></tr><tr><td>Кабачок</td><td>60 г до готовки → ≈50 г готового</td></tr><tr><td>Сладкий перец</td><td>22 г до готовки → ≈19 г готового</td></tr><tr><td>Огурцы свежие</td><td>≈22 г</td></tr><tr><td>Помидоры свежие</td><td>≈22 г</td></tr></tbody></table></div></div>
+<p class="tiny muted serving-disclaimer">
+          Готовый вес приблизительный: мясо и овощи теряют воду, крупы набирают воду. Поэтому ориентируйтесь прежде всего на указанную
+          <b>граммовку до готовки</b>, а готовый вес используйте как удобную проверку при раскладывании.
+        </p>
+<details open="">
+<summary>Полный рецепт</summary>
+<div class="detail-grid">
+<div><h4>Точный список ингредиентов на всю готовку</h4><div class="ingredient-group"><h5>Белок, гарнир и основа</h5><ul class="ingredient-list exact"><li><b>Фарш индейки</b>: 840 г</li><li><b>Цельнозерновая паста сухая</b>: 370 г</li><li><b>Пассата</b>: 780 г</li><li><b>Твёрдый сыр</b>: 70 г</li><li><b>Масло</b>: 40 г</li></ul></div><div class="ingredient-group"><h5>Овощи — конкретно</h5><ul class="ingredient-list exact"><li><b>Репчатый лук</b>: 200 г</li><li><b>Морковь</b>: 250 г</li><li><b>Кабачок</b>: 400 г</li><li><b>Сладкий перец</b>: 150 г</li><li><b>Огурцы свежие</b>: 150 г</li><li><b>Помидоры свежие</b>: 150 г</li></ul></div><div class="ingredient-group"><h5>Специи и мелкие добавки</h5><ul class="ingredient-list exact"><li><b>Чеснок</b>: 15 г — ~3 зубчика</li><li><b>Итальянские травы</b>: 6 г — ~2–3 ч. л.</li><li><b>Соль</b>: 7 г — по вкусу</li><li><b>Чёрный перец</b>: 2 г — ~1 ч. л. без горки</li></ul></div><div class="tipbox veg-usage"><b>Куда идут овощи</b><p>Лук, морковь, кабачок и сладкий перец тушатся внутри соуса болоньезе. Огурцы и помидоры — свежий гарнир к готовой пасте.</p></div></div>
+<div>
+<h4>Пошагово</h4>
+<div class="steps"><div>Лук мелко нарезать, морковь натереть или нарезать очень мелко, кабачок — небольшими кубиками.</div><div>В глубокой сковороде прогреть масло и добавить фарш.</div><div>Готовить 7–10 минут, разбивая фарш на небольшие кусочки.</div><div>Добавить лук и морковь. Через 3–4 минуты добавить кабачок.</div><div>Добавить чеснок, итальянские травы и перец.</div><div>Влить пассату, уменьшить огонь и тушить около 20 минут. Если нужно — добавить немного воды.</div><div>Пасту сварить al dente: примерно на 1–2 минуты меньше максимального времени на упаковке.</div><div>В контейнеры лучше класть пасту снизу, соус сверху. Так она меньше размокает.</div><div>Сыр распределить по контейнерам или добавлять при разогреве.</div></div>
+<div class="tipbox">
+<b>Разогрев</b>
+<p>Разогревать 2–3 минуты. При необходимости добавить 1–2 ст. л. воды в пасту.</p>
+</div>
+<div class="tipbox soft">
+<b>Полезная настройка</b>
+<p>Цельнозерновая паста — нормальный гарнир; нет необходимости заменять её на «диетические» аналоги.</p>
+</div>
+</div>
+</div>
+</details>
+</div>
+</article>
+<article class="card meal">
+<div class="meal-media">
+<img alt="Фахита-bowl с курицей, фасолью и булгуром" onerror="this.style.display='none';this.parentElement.classList.add('fallback')" src="images/w2-fajita.jpg"/>
+</div>
+<div class="meal-body">
+<div class="meal-top">
+<div>
+<div class="when">СРЕДА · 8 ПОРЦИЙ</div>
+<h3>Фахита-bowl с курицей, фасолью и булгуром</h3>
+</div>
+<span class="pill">3 тебе · 5 Насте</span>
+</div>
+<div class="chips"><span class="chip">Куриное филе 1080 г</span><span class="chip">Булгур сухой 365 г</span><span class="chip">Фасоль готовая 700 г</span><span class="chip">Сладкий перец 500 г</span><span class="chip">Репчатый/красный лук 250 г</span><span class="chip">Помидоры свежие 300 г</span></div>
+<div class="macro-cards">
+<div><b>Тебе</b><span>≈ 760 ккал · Б 59 г · Ж 17 г · У 95 г · клетчатка ~27 г</span></div>
+<div><b>Насте</b><span>≈ 570 ккал · Б 45 г · Ж 12 г · У 72 г · клетчатка ~20 г</span></div>
+</div>
+<div class="portion-title">Одна порция: сколько реально положить</div>
+<div class="portion-detail-grid"><div class="one-serving"><div class="one-serving-head"><b>Тебе</b><span>готовая порция ≈ <strong>700 г</strong></span></div><table><tbody><tr><td>Куриное филе</td><td>160 г до готовки → ≈120 г готового</td></tr><tr><td>Булгур сухой</td><td>54 г до готовки → ≈135 г готового</td></tr><tr><td>Фасоль готовая</td><td>≈105 г</td></tr><tr><td>Кукуруза без жидкости</td><td>≈60 г</td></tr><tr><td>Авокадо</td><td>≈34 г</td></tr><tr><td>Масло</td><td>≈6 г</td></tr><tr><td>Сладкий перец</td><td>75 г до готовки → ≈63 г готового</td></tr><tr><td>Репчатый/красный лук</td><td>37 г до готовки → ≈31 г готового</td></tr><tr><td>Помидоры свежие</td><td>≈45 г</td></tr><tr><td>Огурцы свежие</td><td>≈37 г</td></tr><tr><td>Белокочанная/красная капуста</td><td>≈45 г</td></tr><tr><td>Листовой салат</td><td>≈22 г</td></tr></tbody></table></div><div class="one-serving"><div class="one-serving-head"><b>Насте</b><span>готовая порция ≈ <strong>520 г</strong></span></div><table><tbody><tr><td>Куриное филе</td><td>120 г до готовки → ≈91 г готового</td></tr><tr><td>Булгур сухой</td><td>40 г до готовки → ≈99 г готового</td></tr><tr><td>Фасоль готовая</td><td>≈77 г</td></tr><tr><td>Кукуруза без жидкости</td><td>≈45 г</td></tr><tr><td>Авокадо</td><td>≈25 г</td></tr><tr><td>Масло</td><td>≈4.4 г</td></tr><tr><td>Сладкий перец</td><td>55 г до готовки → ≈46 г готового</td></tr><tr><td>Репчатый/красный лук</td><td>28 г до готовки → ≈23 г готового</td></tr><tr><td>Помидоры свежие</td><td>≈33 г</td></tr><tr><td>Огурцы свежие</td><td>≈28 г</td></tr><tr><td>Белокочанная/красная капуста</td><td>≈33 г</td></tr><tr><td>Листовой салат</td><td>≈17 г</td></tr></tbody></table></div></div>
+<p class="tiny muted serving-disclaimer">
+          Готовый вес приблизительный: мясо и овощи теряют воду, крупы набирают воду. Поэтому ориентируйтесь прежде всего на указанную
+          <b>граммовку до готовки</b>, а готовый вес используйте как удобную проверку при раскладывании.
+        </p>
+<details open="">
+<summary>Полный рецепт</summary>
+<div class="detail-grid">
+<div><h4>Точный список ингредиентов на всю готовку</h4><div class="ingredient-group"><h5>Белок, гарнир и основа</h5><ul class="ingredient-list exact"><li><b>Куриное филе</b>: 1080 г</li><li><b>Булгур сухой</b>: 365 г</li><li><b>Фасоль готовая</b>: 700 г</li><li><b>Кукуруза без жидкости</b>: 405 г</li><li><b>Авокадо</b>: 230 г</li><li><b>Масло</b>: 40 г</li></ul></div><div class="ingredient-group"><h5>Овощи — конкретно</h5><ul class="ingredient-list exact"><li><b>Сладкий перец</b>: 500 г</li><li><b>Репчатый/красный лук</b>: 250 г</li><li><b>Помидоры свежие</b>: 300 г</li><li><b>Огурцы свежие</b>: 250 г</li><li><b>Белокочанная/красная капуста</b>: 300 г</li><li><b>Листовой салат</b>: 150 г</li></ul></div><div class="ingredient-group"><h5>Специи и мелкие добавки</h5><ul class="ingredient-list exact"><li><b>Чеснок</b>: 15 г — ~3 зубчика</li><li><b>Паприка сладкая</b>: 8 г — ~2 ч. л.</li><li><b>Паприка копчёная</b>: 8 г — ~2 ч. л.</li><li><b>Зира/кумин</b>: 4 г — ~1 ч. л.</li><li><b>Лайм или лимон</b>: 1 шт — сок при подаче</li><li><b>Соль</b>: 6 г — по вкусу</li><li><b>Чёрный перец</b>: 2 г — ~1 ч. л. без горки</li></ul></div><div class="tipbox veg-usage"><b>Куда идут овощи</b><p>Перец и лук запекаются с курицей. Помидоры, огурцы, капуста, салат и авокадо добавляются холодными при сборке bowl.</p></div></div>
+<div>
+<h4>Пошагово</h4>
+<div class="steps"><div>Разогреть духовку до 200 °C.</div><div>Курицу нарезать полосками. Сладкий перец — полосками, лук — полукольцами.</div><div>Смешать курицу и овощи с маслом, обычной и копчёной паприкой, чесноком и небольшим количеством зиры.</div><div>Разложить одним слоем и запекать 25–30 минут. Примерно через 15 минут перемешать.</div><div>Булгур сварить отдельно.</div><div>Фасоль хорошо промыть. С кукурузы слить жидкость.</div><div>Смешать фасоль и кукурузу с булгуром либо распределить отдельными слоями.</div><div>Авокадо заранее не резать: добавлять непосредственно перед едой, чтобы не темнело.</div><div>Собрать bowl: булгур + фасоль + кукуруза → курица с перцем → свежие овощи → авокадо → лимон/лайм.</div></div>
+<div class="tipbox">
+<b>Разогрев</b>
+<p>Разогревать только булгур, фасоль, кукурузу и курицу. Авокадо и свежие овощи добавлять после.</p>
+</div>
+<div class="tipbox soft">
+<b>Полезная настройка</b>
+<p>Для рабочего обеда Насти часть начинки можно завернуть в цельнозерновую тортилью.</p>
+</div>
+</div>
+</div>
+</details>
+</div>
+</article>
+<div class="next"><a href="#week3">Дальше →</a></div>
+</div>
+</section>
+<section class="page" data-route="week3" id="page-week3">
+<div class="page-shell">
+<div class="page-head week-strip" style="background:#e7f0f5">
+<div class="kicker">Неделя 3</div>
+<h2>Котлеты + хумус · карри · индейка с чечевицей</h2>
+<p>Три готовки: суббота · понедельник · среда. Все граммовки ниже уже рассчитаны под ваши контейнеры.</p>
+</div>
+<article class="card meal">
+<div class="meal-media">
+<img alt="Котлеты из индейки + булгур + хумус" onerror="this.style.display='none';this.parentElement.classList.add('fallback')" src="images/w3-cutlets.jpg"/>
+</div>
+<div class="meal-body">
+<div class="meal-top">
+<div>
+<div class="when">СУББОТА · 7 ПОРЦИЙ</div>
+<h3>Котлеты из индейки + булгур + хумус</h3>
+</div>
+<span class="pill">3 тебе · 4 Насте</span>
+</div>
+<div class="chips"><span class="chip">Фарш индейки 1080 г</span><span class="chip">Булгур сухой 395 г</span><span class="chip">Хумус 240 г</span><span class="chip">Кабачок 450 г</span><span class="chip">Баклажан 450 г</span><span class="chip">Морковь 350 г</span></div>
+<div class="macro-cards">
+<div><b>Тебе</b><span>≈ 790 ккал · Б 52 г · Ж 31 г · У 76 г · клетчатка ~23 г</span></div>
+<div><b>Насте</b><span>≈ 600 ккал · Б 40 г · Ж 24 г · У 59 г · клетчатка ~18 г</span></div>
+</div>
+<div class="portion-title">Одна порция: сколько реально положить</div>
+<div class="portion-detail-grid"><div class="one-serving"><div class="one-serving-head"><b>Тебе</b><span>готовая порция ≈ <strong>660 г</strong></span></div><table><tbody><tr><td>Фарш индейки</td><td>180 г до готовки → ≈140 г готового</td></tr><tr><td>Булгур сухой</td><td>66 г до готовки → ≈160 г готового</td></tr><tr><td>Хумус</td><td>≈40 г</td></tr><tr><td>Масло</td><td>≈8.4 г</td></tr><tr><td>Кабачок</td><td>75 г до готовки → ≈63 г готового</td></tr><tr><td>Баклажан</td><td>75 г до готовки → ≈63 г готового</td></tr><tr><td>Морковь</td><td>59 г до готовки → ≈49 г готового</td></tr><tr><td>Сладкий перец</td><td>59 г до готовки → ≈49 г готового</td></tr><tr><td>Репчатый лук</td><td>34 г до готовки → ≈28 г готового</td></tr><tr><td>Огурцы свежие</td><td>≈31 г</td></tr><tr><td>Помидоры свежие</td><td>≈31 г</td></tr></tbody></table></div><div class="one-serving"><div class="one-serving-head"><b>Насте</b><span>готовая порция ≈ <strong>490 г</strong></span></div><table><tbody><tr><td>Фарш индейки</td><td>135 г до готовки → ≈100 г готового</td></tr><tr><td>Булгур сухой</td><td>49 г до готовки → ≈120 г готового</td></tr><tr><td>Хумус</td><td>≈30 г</td></tr><tr><td>Масло</td><td>≈6.2 г</td></tr><tr><td>Кабачок</td><td>56 г до готовки → ≈47 г готового</td></tr><tr><td>Баклажан</td><td>56 г до готовки → ≈47 г готового</td></tr><tr><td>Морковь</td><td>43 г до готовки → ≈37 г готового</td></tr><tr><td>Сладкий перец</td><td>43 г до готовки → ≈37 г готового</td></tr><tr><td>Репчатый лук</td><td>25 г до готовки → ≈21 г готового</td></tr><tr><td>Огурцы свежие</td><td>≈23 г</td></tr><tr><td>Помидоры свежие</td><td>≈23 г</td></tr></tbody></table></div></div>
+<p class="tiny muted serving-disclaimer">
+          Готовый вес приблизительный: мясо и овощи теряют воду, крупы набирают воду. Поэтому ориентируйтесь прежде всего на указанную
+          <b>граммовку до готовки</b>, а готовый вес используйте как удобную проверку при раскладывании.
+        </p>
+<details open="">
+<summary>Полный рецепт</summary>
+<div class="detail-grid">
+<div><h4>Точный список ингредиентов на всю готовку</h4><div class="ingredient-group"><h5>Белок, гарнир и основа</h5><ul class="ingredient-list exact"><li><b>Фарш индейки</b>: 1080 г</li><li><b>Булгур сухой</b>: 395 г</li><li><b>Хумус</b>: 240 г</li><li><b>Масло</b>: 50 г</li><li><b>Яйцо</b>: 1 шт</li></ul></div><div class="ingredient-group"><h5>Овощи — конкретно</h5><ul class="ingredient-list exact"><li><b>Кабачок</b>: 450 г</li><li><b>Баклажан</b>: 450 г</li><li><b>Морковь</b>: 350 г</li><li><b>Сладкий перец</b>: 350 г</li><li><b>Репчатый лук</b>: 200 г</li><li><b>Огурцы свежие</b>: 185 г</li><li><b>Помидоры свежие</b>: 185 г</li></ul></div><div class="ingredient-group"><h5>Специи и мелкие добавки</h5><ul class="ingredient-list exact"><li><b>Чеснок</b>: 12 г — ~2–3 зубчика</li><li><b>Паприка</b>: 8 г — ~2 ч. л.</li><li><b>Соль</b>: 8 г — по вкусу</li><li><b>Чёрный перец</b>: 2 г — ~1 ч. л. без горки</li><li><b>Овсяные хлопья</b>: 30 г — необязательно, если фарш жидковат</li></ul></div><div class="tipbox veg-usage"><b>Куда идут овощи</b><p>Лук идёт в котлеты. Кабачок, баклажан, морковь и перец запекаются. Огурцы и помидоры — свежими при подаче.</p></div></div>
+<div>
+<h4>Пошагово</h4>
+<div class="steps"><div>Разогреть духовку до 195 °C.</div><div>Смешать фарш с яйцом, мелко нарезанным луком, чесноком и специями.</div><div>Сформировать 16–18 относительно плоских котлет одинакового размера.</div><div>Выложить на пергамент и запекать 20–25 минут.</div><div>На втором противне запечь кабачок, баклажан, сладкий перец и морковь с маслом 30–35 минут.</div><div>Булгур сварить отдельно до готовности.</div><div>Хумус не нагревать и не смешивать заранее с горячими компонентами.</div><div>Разложить мясо, булгур и овощи по контейнерам, хумус — в маленькие отдельные ёмкости либо добавлять уже перед едой.</div></div>
+<div class="tipbox">
+<b>Разогрев</b>
+<p>Котлеты, булгур и овощи разогреть вместе. Хумус добавить после.</p>
+</div>
+<div class="tipbox soft">
+<b>Полезная настройка</b>
+<p>Это более жирный ужин из-за хумуса и фарша. Если хочется легче — уменьшить масло, а не белок.</p>
+</div>
+</div>
+</div>
+</details>
+</div>
+</article>
+<article class="card meal">
+<div class="meal-media">
+<img alt="Йогуртовая курица карри + бурый рис" onerror="this.style.display='none';this.parentElement.classList.add('fallback')" src="images/w3-curry.jpg"/>
+</div>
+<div class="meal-body">
+<div class="meal-top">
+<div>
+<div class="when">ПОНЕДЕЛЬНИК · 6 ПОРЦИЙ</div>
+<h3>Йогуртовая курица карри + бурый рис</h3>
+</div>
+<span class="pill">2 тебе · 4 Насте</span>
+</div>
+<div class="chips"><span class="chip">Куриное филе 900 г</span><span class="chip">Бурый рис сухой 300 г</span><span class="chip">Натуральный йогурт 400 г</span><span class="chip">Репчатый лук 180 г</span><span class="chip">Морковь 280 г</span><span class="chip">Сладкий перец 320 г</span></div>
+<div class="macro-cards">
+<div><b>Тебе</b><span>≈ 690 ккал · Б 60 г · Ж 14 г · У 72 г</span></div>
+<div><b>Насте</b><span>≈ 525 ккал · Б 45 г · Ж 11 г · У 55 г</span></div>
+</div>
+<div class="portion-title">Одна порция: сколько реально положить</div>
+<div class="portion-detail-grid"><div class="one-serving"><div class="one-serving-head"><b>Тебе</b><span>готовая порция ≈ <strong>760 г</strong></span></div><table><tbody><tr><td>Куриное филе</td><td>180 г до готовки → ≈140 г готового</td></tr><tr><td>Бурый рис сухой</td><td>60 г до готовки → ≈155 г готового</td></tr><tr><td>Натуральный йогурт</td><td>≈81 г</td></tr><tr><td>Пассата</td><td>≈105 г</td></tr><tr><td>Масло</td><td>≈8.1 г</td></tr><tr><td>Репчатый лук</td><td>36 г до готовки → ≈30 г готового</td></tr><tr><td>Морковь</td><td>56 г до готовки → ≈47 г готового</td></tr><tr><td>Сладкий перец</td><td>64 г до готовки → ≈54 г готового</td></tr><tr><td>Брокколи</td><td>81 г до готовки → ≈68 г готового</td></tr><tr><td>Кабачок</td><td>40 г до готовки → ≈34 г готового</td></tr><tr><td>Огурцы свежие</td><td>≈18 г</td></tr><tr><td>Помидоры свежие</td><td>≈18 г</td></tr></tbody></table></div><div class="one-serving"><div class="one-serving-head"><b>Насте</b><span>готовая порция ≈ <strong>560 г</strong></span></div><table><tbody><tr><td>Куриное филе</td><td>135 г до готовки → ≈100 г готового</td></tr><tr><td>Бурый рис сухой</td><td>45 г до готовки → ≈115 г готового</td></tr><tr><td>Натуральный йогурт</td><td>≈60 г</td></tr><tr><td>Пассата</td><td>≈78 г</td></tr><tr><td>Масло</td><td>≈6 г</td></tr><tr><td>Репчатый лук</td><td>27 г до готовки → ≈23 г готового</td></tr><tr><td>Морковь</td><td>42 г до готовки → ≈35 г готового</td></tr><tr><td>Сладкий перец</td><td>48 г до готовки → ≈40 г готового</td></tr><tr><td>Брокколи</td><td>60 г до готовки → ≈50 г готового</td></tr><tr><td>Кабачок</td><td>30 г до готовки → ≈25 г готового</td></tr><tr><td>Огурцы свежие</td><td>≈13 г</td></tr><tr><td>Помидоры свежие</td><td>≈13 г</td></tr></tbody></table></div></div>
+<p class="tiny muted serving-disclaimer">
+          Готовый вес приблизительный: мясо и овощи теряют воду, крупы набирают воду. Поэтому ориентируйтесь прежде всего на указанную
+          <b>граммовку до готовки</b>, а готовый вес используйте как удобную проверку при раскладывании.
+        </p>
+<details open="">
+<summary>Полный рецепт</summary>
+<div class="detail-grid">
+<div><h4>Точный список ингредиентов на всю готовку</h4><div class="ingredient-group"><h5>Белок, гарнир и основа</h5><ul class="ingredient-list exact"><li><b>Куриное филе</b>: 900 г</li><li><b>Бурый рис сухой</b>: 300 г</li><li><b>Натуральный йогурт</b>: 400 г</li><li><b>Пассата</b>: 520 г</li><li><b>Масло</b>: 40 г</li></ul></div><div class="ingredient-group"><h5>Овощи — конкретно</h5><ul class="ingredient-list exact"><li><b>Репчатый лук</b>: 180 г</li><li><b>Морковь</b>: 280 г</li><li><b>Сладкий перец</b>: 320 г</li><li><b>Брокколи</b>: 400 г</li><li><b>Кабачок</b>: 200 г</li><li><b>Огурцы свежие</b>: 90 г</li><li><b>Помидоры свежие</b>: 90 г</li></ul></div><div class="ingredient-group"><h5>Специи и мелкие добавки</h5><ul class="ingredient-list exact"><li><b>Чеснок</b>: 15 г — ~3 зубчика</li><li><b>Карри</b>: 12 г — ~1 ст. л.</li><li><b>Куркума</b>: 4 г — ~1 ч. л.</li><li><b>Соль</b>: 6 г — по вкусу</li><li><b>Чёрный перец</b>: 2 г — ~1 ч. л. без горки</li></ul></div><div class="tipbox veg-usage"><b>Куда идут овощи</b><p>Лук, морковь, перец, брокколи и кабачок готовятся в самом карри. Огурцы и помидоры можно добавить свежими рядом.</p></div></div>
+<div>
+<h4>Пошагово</h4>
+<div class="steps"><div>Курицу нарезать кубиками, овощи подготовить заранее.</div><div>В глубокой сковороде разогреть масло и готовить курицу 5–7 минут.</div><div>Добавить лук и морковь, затем сладкий перец.</div><div>Добавить карри, куркуму, чеснок и перец. Перемешать.</div><div>Влить пассату и примерно 100 мл воды. Тушить 10–15 минут.</div><div>Добавить брокколи и готовить ещё 7–10 минут.</div><div>Убавить огонь почти до минимального и вмешать йогурт.</div><div>После добавления йогурта не кипятить активно, чтобы соус не расслоился.</div><div>Бурый рис сварить отдельно.</div><div>Разложить по 6 контейнерам.</div></div>
+<div class="tipbox">
+<b>Разогрев</b>
+<p>Разогревать не на максимальной мощности, чтобы йогуртовый соус оставался однородным.</p>
+</div>
+<div class="tipbox soft">
+<b>Полезная настройка</b>
+<p>Если хочется более яркого вкуса — добавить немного лимонного сока уже после разогрева.</p>
+</div>
+</div>
+</div>
+</details>
+</div>
+</article>
+<article class="card meal">
+<div class="meal-media">
+<img alt="Индейка с чечевицей в томатном соусе" onerror="this.style.display='none';this.parentElement.classList.add('fallback')" src="images/w3-lentils.jpg"/>
+</div>
+<div class="meal-body">
+<div class="meal-top">
+<div>
+<div class="when">СРЕДА · 8 ПОРЦИЙ</div>
+<h3>Индейка с чечевицей в томатном соусе</h3>
+</div>
+<span class="pill">3 тебе · 5 Насте</span>
+</div>
+<div class="chips"><span class="chip">Фарш индейки 890 г</span><span class="chip">Чечевица готовая 1350 г</span><span class="chip">Бурый рис сухой 310 г</span><span class="chip">Репчатый лук 250 г</span><span class="chip">Морковь 300 г</span><span class="chip">Сладкий перец 400 г</span></div>
+<div class="macro-cards">
+<div><b>Тебе</b><span>≈ 815 ккал · Б 53 г · Ж 23 г · У 96 г · клетчатка ~26 г</span></div>
+<div><b>Насте</b><span>≈ 625 ккал · Б 41 г · Ж 17 г · У 74 г · клетчатка ~20 г</span></div>
+</div>
+<div class="portion-title">Одна порция: сколько реально положить</div>
+<div class="portion-detail-grid"><div class="one-serving"><div class="one-serving-head"><b>Тебе</b><span>готовая порция ≈ <strong>820 г</strong></span></div><table><tbody><tr><td>Фарш индейки</td><td>135 г до готовки → ≈100 г готового</td></tr><tr><td>Чечевица готовая</td><td>≈200 г</td></tr><tr><td>Бурый рис сухой</td><td>46 г до готовки → ≈120 г готового</td></tr><tr><td>Пассата</td><td>≈155 г</td></tr><tr><td>Масло</td><td>≈7.2 г</td></tr><tr><td>Репчатый лук</td><td>37 г до готовки → ≈31 г готового</td></tr><tr><td>Морковь</td><td>45 г до готовки → ≈38 г готового</td></tr><tr><td>Сладкий перец</td><td>60 г до готовки → ≈50 г готового</td></tr><tr><td>Кабачок</td><td>37 г до готовки → ≈31 г готового</td></tr><tr><td>Огурцы свежие</td><td>≈41 г</td></tr><tr><td>Помидоры свежие</td><td>≈41 г</td></tr></tbody></table></div><div class="one-serving"><div class="one-serving-head"><b>Насте</b><span>готовая порция ≈ <strong>600 г</strong></span></div><table><tbody><tr><td>Фарш индейки</td><td>98 г до готовки → ≈75 г готового</td></tr><tr><td>Чечевица готовая</td><td>≈150 г</td></tr><tr><td>Бурый рис сухой</td><td>34 г до готовки → ≈87 г готового</td></tr><tr><td>Пассата</td><td>≈115 г</td></tr><tr><td>Масло</td><td>≈5.3 г</td></tr><tr><td>Репчатый лук</td><td>28 г до готовки → ≈23 г готового</td></tr><tr><td>Морковь</td><td>33 г до готовки → ≈28 г готового</td></tr><tr><td>Сладкий перец</td><td>44 г до готовки → ≈37 г готового</td></tr><tr><td>Кабачок</td><td>28 г до готовки → ≈23 г готового</td></tr><tr><td>Огурцы свежие</td><td>≈30 г</td></tr><tr><td>Помидоры свежие</td><td>≈30 г</td></tr></tbody></table></div></div>
+<p class="tiny muted serving-disclaimer">
+          Готовый вес приблизительный: мясо и овощи теряют воду, крупы набирают воду. Поэтому ориентируйтесь прежде всего на указанную
+          <b>граммовку до готовки</b>, а готовый вес используйте как удобную проверку при раскладывании.
+        </p>
+<details open="">
+<summary>Полный рецепт</summary>
+<div class="detail-grid">
+<div><h4>Точный список ингредиентов на всю готовку</h4><div class="ingredient-group"><h5>Белок, гарнир и основа</h5><ul class="ingredient-list exact"><li><b>Фарш индейки</b>: 890 г</li><li><b>Чечевица готовая</b>: 1350 г</li><li><b>Бурый рис сухой</b>: 310 г</li><li><b>Пассата</b>: 1050 г</li><li><b>Масло</b>: 48 г</li></ul></div><div class="ingredient-group"><h5>Овощи — конкретно</h5><ul class="ingredient-list exact"><li><b>Репчатый лук</b>: 250 г</li><li><b>Морковь</b>: 300 г</li><li><b>Сладкий перец</b>: 400 г</li><li><b>Кабачок</b>: 250 г</li><li><b>Огурцы свежие</b>: 275 г</li><li><b>Помидоры свежие</b>: 275 г</li></ul></div><div class="ingredient-group"><h5>Специи и мелкие добавки</h5><ul class="ingredient-list exact"><li><b>Чеснок</b>: 15 г — ~3 зубчика</li><li><b>Паприка</b>: 8 г — ~2 ч. л.</li><li><b>Зира/кумин</b>: 4 г — ~1 ч. л.</li><li><b>Соль</b>: 7 г — по вкусу</li><li><b>Чёрный перец</b>: 2 г — ~1 ч. л. без горки</li></ul></div><div class="tipbox veg-usage"><b>Куда идут овощи</b><p>Лук, морковь, перец и кабачок тушатся вместе с индейкой и чечевицей. Огурцы и помидоры остаются свежими.</p></div></div>
+<div>
+<h4>Пошагово</h4>
+<div class="steps"><div>Лук, морковь и перец нарезать мелкими кусочками.</div><div>В большой кастрюле прогреть масло и готовить индейку 7–8 минут.</div><div>Добавить овощи и готовить ещё 5–7 минут.</div><div>Добавить чеснок, паприку и зиру/карри.</div><div>Влить пассату и тушить 10 минут.</div><div>Добавить готовую чечевицу. Если масса слишком густая, добавить 150–250 мл воды.</div><div>Тушить ещё 10–15 минут.</div><div>Бурый рис сварить отдельно.</div><div>Разложить по 8 контейнерам. В рабочие контейнеры Насти можно положить чуть меньше риса и чуть больше чечевичной основы.</div></div>
+<div class="tipbox">
+<b>Разогрев</b>
+<p>Перед разогревом при необходимости добавить ложку воды — чечевица заметно густеет в холодильнике.</p>
+</div>
+<div class="tipbox soft">
+<b>Полезная настройка</b>
+<p>Очень удачное блюдо по клетчатке и насыщаемости; если бобовых раньше ели мало, начните с чуть меньшей порции чечевицы.</p>
+</div>
+</div>
+</div>
+</details>
+</div>
+</article>
+<div class="next"><a href="#week4">Дальше →</a></div>
+</div>
+</section>
+<section class="page" data-route="week4" id="page-week4">
+<div class="page-shell">
+<div class="page-head week-strip" style="background:#eee7f3">
+<div class="kicker">Неделя 4</div>
+<h2>Средиземноморская курица · мясной хлеб · терияки-ish</h2>
+<p>Три готовки: суббота · понедельник · среда. Все граммовки ниже уже рассчитаны под ваши контейнеры.</p>
+</div>
+<article class="card meal">
+<div class="meal-media">
+<img alt="Средиземноморская курица + булгур" onerror="this.style.display='none';this.parentElement.classList.add('fallback')" src="images/w4-mediterranean.jpg"/>
+</div>
+<div class="meal-body">
+<div class="meal-top">
+<div>
+<div class="when">СУББОТА · 7 ПОРЦИЙ</div>
+<h3>Средиземноморская курица + булгур</h3>
+</div>
+<span class="pill">3 тебе · 4 Насте</span>
+</div>
+<div class="chips"><span class="chip">Куриное филе 1080 г</span><span class="chip">Булгур сухой 395 г</span><span class="chip">Сыр 85 г</span><span class="chip">Баклажан 450 г</span><span class="chip">Кабачок 450 г</span><span class="chip">Помидоры 450 г</span></div>
+<div class="macro-cards">
+<div><b>Тебе</b><span>≈ 710 ккал · Б 62 г · Ж 17 г · У 72 г · клетчатка ~21 г</span></div>
+<div><b>Насте</b><span>≈ 540 ккал · Б 47 г · Ж 13 г · У 56 г · клетчатка ~16 г</span></div>
+</div>
+<div class="portion-title">Одна порция: сколько реально положить</div>
+<div class="portion-detail-grid"><div class="one-serving"><div class="one-serving-head"><b>Тебе</b><span>готовая порция ≈ <strong>680 г</strong></span></div><table><tbody><tr><td>Куриное филе</td><td>180 г до готовки → ≈140 г готового</td></tr><tr><td>Булгур сухой</td><td>66 г до готовки → ≈160 г готового</td></tr><tr><td>Сыр</td><td>≈14 г</td></tr><tr><td>Натуральный йогурт</td><td>≈40 г</td></tr><tr><td>Масло</td><td>≈8.4 г</td></tr><tr><td>Баклажан</td><td>75 г до готовки → ≈63 г готового</td></tr><tr><td>Кабачок</td><td>75 г до готовки → ≈63 г готового</td></tr><tr><td>Помидоры</td><td>75 г до готовки → ≈63 г готового</td></tr><tr><td>Сладкий перец</td><td>59 г до готовки → ≈49 г готового</td></tr><tr><td>Репчатый лук</td><td>37 г до готовки → ≈31 г готового</td></tr><tr><td>Огурцы свежие</td><td>≈42 г</td></tr></tbody></table></div><div class="one-serving"><div class="one-serving-head"><b>Насте</b><span>готовая порция ≈ <strong>500 г</strong></span></div><table><tbody><tr><td>Куриное филе</td><td>135 г до готовки → ≈100 г готового</td></tr><tr><td>Булгур сухой</td><td>49 г до готовки → ≈120 г готового</td></tr><tr><td>Сыр</td><td>≈11 г</td></tr><tr><td>Натуральный йогурт</td><td>≈30 г</td></tr><tr><td>Масло</td><td>≈6.2 г</td></tr><tr><td>Баклажан</td><td>56 г до готовки → ≈47 г готового</td></tr><tr><td>Кабачок</td><td>56 г до готовки → ≈47 г готового</td></tr><tr><td>Помидоры</td><td>56 г до готовки → ≈47 г готового</td></tr><tr><td>Сладкий перец</td><td>43 г до готовки → ≈37 г готового</td></tr><tr><td>Репчатый лук</td><td>27 г до готовки → ≈23 г готового</td></tr><tr><td>Огурцы свежие</td><td>≈31 г</td></tr></tbody></table></div></div>
+<p class="tiny muted serving-disclaimer">
+          Готовый вес приблизительный: мясо и овощи теряют воду, крупы набирают воду. Поэтому ориентируйтесь прежде всего на указанную
+          <b>граммовку до готовки</b>, а готовый вес используйте как удобную проверку при раскладывании.
+        </p>
+<details open="">
+<summary>Полный рецепт</summary>
+<div class="detail-grid">
+<div><h4>Точный список ингредиентов на всю готовку</h4><div class="ingredient-group"><h5>Белок, гарнир и основа</h5><ul class="ingredient-list exact"><li><b>Куриное филе</b>: 1080 г</li><li><b>Булгур сухой</b>: 395 г</li><li><b>Сыр</b>: 85 г</li><li><b>Натуральный йогурт</b>: 240 г</li><li><b>Масло</b>: 50 г</li></ul></div><div class="ingredient-group"><h5>Овощи — конкретно</h5><ul class="ingredient-list exact"><li><b>Баклажан</b>: 450 г</li><li><b>Кабачок</b>: 450 г</li><li><b>Помидоры</b>: 450 г</li><li><b>Сладкий перец</b>: 350 г</li><li><b>Репчатый лук</b>: 220 г</li><li><b>Огурцы свежие</b>: 250 г</li></ul></div><div class="ingredient-group"><h5>Специи и мелкие добавки</h5><ul class="ingredient-list exact"><li><b>Чеснок</b>: 15 г — ~3 зубчика</li><li><b>Орегано/итальянские травы</b>: 6 г — ~2–3 ч. л.</li><li><b>Паприка</b>: 6 г — ~1½ ч. л.</li><li><b>Лимон</b>: 1 шт — для соуса и подачи</li><li><b>Соль</b>: 6 г — учесть солёность сыра</li><li><b>Чёрный перец</b>: 2 г — ~1 ч. л. без горки</li></ul></div><div class="tipbox veg-usage"><b>Куда идут овощи</b><p>Баклажан, кабачок, помидоры, перец и лук запекаются с курицей. Огурцы остаются свежими.</p></div></div>
+<div>
+<h4>Пошагово</h4>
+<div class="steps"><div>Разогреть духовку до 195 °C.</div><div>Баклажан, кабачок и сладкий перец нарезать крупными кусками. Курицу — крупными кубиками.</div><div>Смешать курицу и овощи с маслом, чесноком, орегано и паприкой.</div><div>Выложить в большую форму и запекать 20 минут.</div><div>Добавить помидоры и распределить сверху сыр.</div><div>Вернуть в духовку ещё примерно на 10 минут.</div><div>Булгур сварить отдельно.</div><div>Соус: йогурт + чеснок + лимонный сок.</div><div>Разложить по 7 контейнерам. Холодный соус держать отдельно.</div></div>
+<div class="tipbox">
+<b>Разогрев</b>
+<p>Разогревать курицу, овощи и булгур вместе; йогуртовый соус добавлять после.</p>
+</div>
+<div class="tipbox soft">
+<b>Полезная настройка</b>
+<p>Если используете солёный сыр, соли в основном блюде нужно меньше.</p>
+</div>
+</div>
+</div>
+</details>
+</div>
+</article>
+<article class="card meal">
+<div class="meal-media">
+<img alt="Мясной хлеб из индейки + картофель" onerror="this.style.display='none';this.parentElement.classList.add('fallback')" src="images/w4-meatloaf.jpg"/>
+</div>
+<div class="meal-body">
+<div class="meal-top">
+<div>
+<div class="when">ПОНЕДЕЛЬНИК · 6 ПОРЦИЙ</div>
+<h3>Мясной хлеб из индейки + картофель</h3>
+</div>
+<span class="pill">2 тебе · 4 Насте</span>
+</div>
+<div class="chips"><span class="chip">Фарш индейки 900 г</span><span class="chip">Картофель 1400 г</span><span class="chip">Натуральный йогурт 150 г</span><span class="chip">Репчатый лук 200 г</span><span class="chip">Морковь 420 г</span><span class="chip">Кабачок 400 г</span></div>
+<div class="macro-cards">
+<div><b>Тебе</b><span>≈ 735 ккал · Б 50 г · Ж 27 г · У 70 г · клетчатка ~15 г</span></div>
+<div><b>Насте</b><span>≈ 555 ккал · Б 37 г · Ж 20 г · У 53 г · клетчатка ~12 г</span></div>
+</div>
+<div class="portion-title">Одна порция: сколько реально положить</div>
+<div class="portion-detail-grid"><div class="one-serving"><div class="one-serving-head"><b>Тебе</b><span>готовая порция ≈ <strong>780 г</strong></span></div><table><tbody><tr><td>Фарш индейки</td><td>180 г до готовки → ≈140 г готового</td></tr><tr><td>Картофель</td><td>280 г до готовки → ≈255 г готового</td></tr><tr><td>Натуральный йогурт</td><td>≈30 г</td></tr><tr><td>Пассата для верха</td><td>≈30 г</td></tr><tr><td>Масло</td><td>≈8.1 г</td></tr><tr><td>Репчатый лук</td><td>40 г до готовки → ≈34 г готового</td></tr><tr><td>Морковь</td><td>85 г до готовки → ≈71 г готового</td></tr><tr><td>Кабачок</td><td>81 г до готовки → ≈68 г готового</td></tr><tr><td>Сладкий перец</td><td>60 г до готовки → ≈51 г готового</td></tr><tr><td>Брокколи</td><td>50 г до готовки → ≈42 г готового</td></tr><tr><td>Огурцы свежие</td><td>≈25 г</td></tr><tr><td>Помидоры свежие</td><td>≈25 г</td></tr></tbody></table></div><div class="one-serving"><div class="one-serving-head"><b>Насте</b><span>готовая порция ≈ <strong>580 г</strong></span></div><table><tbody><tr><td>Фарш индейки</td><td>135 г до готовки → ≈100 г готового</td></tr><tr><td>Картофель</td><td>210 г до готовки → ≈190 г готового</td></tr><tr><td>Натуральный йогурт</td><td>≈22 г</td></tr><tr><td>Пассата для верха</td><td>≈22 г</td></tr><tr><td>Масло</td><td>≈6 г</td></tr><tr><td>Репчатый лук</td><td>30 г до готовки → ≈25 г готового</td></tr><tr><td>Морковь</td><td>63 г до готовки → ≈53 г готового</td></tr><tr><td>Кабачок</td><td>60 г до готовки → ≈50 г готового</td></tr><tr><td>Сладкий перец</td><td>45 г до готовки → ≈38 г готового</td></tr><tr><td>Брокколи</td><td>37 г до готовки → ≈31 г готового</td></tr><tr><td>Огурцы свежие</td><td>≈19 г</td></tr><tr><td>Помидоры свежие</td><td>≈19 г</td></tr></tbody></table></div></div>
+<p class="tiny muted serving-disclaimer">
+          Готовый вес приблизительный: мясо и овощи теряют воду, крупы набирают воду. Поэтому ориентируйтесь прежде всего на указанную
+          <b>граммовку до готовки</b>, а готовый вес используйте как удобную проверку при раскладывании.
+        </p>
+<details open="">
+<summary>Полный рецепт</summary>
+<div class="detail-grid">
+<div><h4>Точный список ингредиентов на всю готовку</h4><div class="ingredient-group"><h5>Белок, гарнир и основа</h5><ul class="ingredient-list exact"><li><b>Фарш индейки</b>: 900 г</li><li><b>Картофель</b>: 1400 г</li><li><b>Натуральный йогурт</b>: 150 г</li><li><b>Пассата для верха</b>: 150 г</li><li><b>Масло</b>: 40 г</li><li><b>Яйцо</b>: 1 шт</li></ul></div><div class="ingredient-group"><h5>Овощи — конкретно</h5><ul class="ingredient-list exact"><li><b>Репчатый лук</b>: 200 г</li><li><b>Морковь</b>: 420 г</li><li><b>Кабачок</b>: 400 г</li><li><b>Сладкий перец</b>: 300 г</li><li><b>Брокколи</b>: 250 г</li><li><b>Огурцы свежие</b>: 125 г</li><li><b>Помидоры свежие</b>: 125 г</li></ul></div><div class="ingredient-group"><h5>Специи и мелкие добавки</h5><ul class="ingredient-list exact"><li><b>Чеснок</b>: 12 г — ~2–3 зубчика</li><li><b>Паприка</b>: 8 г — ~2 ч. л.</li><li><b>Соль</b>: 7 г — по вкусу</li><li><b>Чёрный перец</b>: 2 г — ~1 ч. л. без горки</li></ul></div><div class="tipbox veg-usage"><b>Куда идут овощи</b><p>Лук и примерно 120 г моркови идут внутрь мясного хлеба. Остальная морковь, кабачок, перец и брокколи запекаются рядом. Огурцы и помидоры — свежими.</p></div></div>
+<div>
+<h4>Пошагово</h4>
+<div class="steps"><div>Разогреть духовку до 190 °C.</div><div>В фарш добавить яйцо, мелко нарезанный лук, немного тёртой моркови, чеснок, паприку и перец.</div><div>Хорошо перемешать и сформировать продолговатую «буханку» либо уложить фарш в прямоугольную форму.</div><div>Сверху тонко смазать пассатой.</div><div>Запекать 40–50 минут.</div><div>Картофель нарезать дольками, смешать с маслом и специями и поставить рядом на 35–40 минут.</div><div>На свободную часть противня добавить перец, морковь и кабачок.</div><div>После духовки дать мясному хлебу постоять 10 минут — тогда он легче нарезается и меньше разваливается.</div><div>Разрезать на 6 порций и разложить с картофелем и овощами.</div></div>
+<div class="tipbox">
+<b>Разогрев</b>
+<p>Разогревать ломтики мясного хлеба вместе с картофелем. Йогуртовый соус добавить после.</p>
+</div>
+<div class="tipbox soft">
+<b>Полезная настройка</b>
+<p>Это удобно именно для контейнеров: готовый мясной хлеб легко нарезать одинаковыми ломтиками.</p>
+</div>
+</div>
+</div>
+</details>
+</div>
+</article>
+<article class="card meal">
+<div class="meal-media">
+<img alt="Курица терияки-ish + бурый рис + овощи" onerror="this.style.display='none';this.parentElement.classList.add('fallback')" src="images/w4-teriyaki.jpg"/>
+</div>
+<div class="meal-body">
+<div class="meal-top">
+<div>
+<div class="when">СРЕДА · 8 ПОРЦИЙ</div>
+<h3>Курица терияки-ish + бурый рис + овощи</h3>
+</div>
+<span class="pill">3 тебе · 5 Насте</span>
+</div>
+<div class="chips"><span class="chip">Куриное филе 1215 г</span><span class="chip">Бурый рис сухой 445 г</span><span class="chip">Соевый соус 105 мл</span><span class="chip">Брокколи 550 г</span><span class="chip">Морковь 450 г</span><span class="chip">Сладкий перец 400 г</span></div>
+<div class="macro-cards">
+<div><b>Тебе</b><span>≈ 665 ккал · Б 53 г · Ж 12 г · У 78 г · клетчатка ~11 г</span></div>
+<div><b>Насте</b><span>≈ 505 ккал · Б 40 г · Ж 9 г · У 61 г · клетчатка ~9 г</span></div>
+</div>
+<div class="portion-title">Одна порция: сколько реально положить</div>
+<div class="portion-detail-grid"><div class="one-serving"><div class="one-serving-head"><b>Тебе</b><span>готовая порция ≈ <strong>660 г</strong></span></div><table><tbody><tr><td>Куриное филе</td><td>180 г до готовки → ≈140 г готового</td></tr><tr><td>Бурый рис сухой</td><td>66 г до готовки → ≈170 г готового</td></tr><tr><td>Соевый соус</td><td>≈16 мл</td></tr><tr><td>Мёд</td><td>≈7.9 г</td></tr><tr><td>Масло</td><td>≈6 г</td></tr><tr><td>Брокколи</td><td>82 г до готовки → ≈69 г готового</td></tr><tr><td>Морковь</td><td>67 г до готовки → ≈56 г готового</td></tr><tr><td>Сладкий перец</td><td>60 г до готовки → ≈50 г готового</td></tr><tr><td>Капуста белокочанная/пекинская</td><td>≈60 г</td></tr><tr><td>Репчатый лук</td><td>30 г до готовки → ≈25 г готового</td></tr><tr><td>Огурцы свежие</td><td>≈37 г</td></tr><tr><td>Кабачок</td><td>30 г до готовки → ≈25 г готового</td></tr></tbody></table></div><div class="one-serving"><div class="one-serving-head"><b>Насте</b><span>готовая порция ≈ <strong>490 г</strong></span></div><table><tbody><tr><td>Куриное филе</td><td>135 г до готовки → ≈100 г готового</td></tr><tr><td>Бурый рис сухой</td><td>49 г до готовки → ≈125 г готового</td></tr><tr><td>Соевый соус</td><td>≈12 мл</td></tr><tr><td>Мёд</td><td>≈5.9 г</td></tr><tr><td>Масло</td><td>≈4.4 г</td></tr><tr><td>Брокколи</td><td>61 г до готовки → ≈51 г готового</td></tr><tr><td>Морковь</td><td>50 г до готовки → ≈42 г готового</td></tr><tr><td>Сладкий перец</td><td>44 г до готовки → ≈37 г готового</td></tr><tr><td>Капуста белокочанная/пекинская</td><td>≈44 г</td></tr><tr><td>Репчатый лук</td><td>22 г до готовки → ≈19 г готового</td></tr><tr><td>Огурцы свежие</td><td>≈28 г</td></tr><tr><td>Кабачок</td><td>22 г до готовки → ≈19 г готового</td></tr></tbody></table></div></div>
+<p class="tiny muted serving-disclaimer">
+          Готовый вес приблизительный: мясо и овощи теряют воду, крупы набирают воду. Поэтому ориентируйтесь прежде всего на указанную
+          <b>граммовку до готовки</b>, а готовый вес используйте как удобную проверку при раскладывании.
+        </p>
+<details open="">
+<summary>Полный рецепт</summary>
+<div class="detail-grid">
+<div><h4>Точный список ингредиентов на всю готовку</h4><div class="ingredient-group"><h5>Белок, гарнир и основа</h5><ul class="ingredient-list exact"><li><b>Куриное филе</b>: 1215 г</li><li><b>Бурый рис сухой</b>: 445 г</li><li><b>Соевый соус</b>: 105 мл</li><li><b>Мёд</b>: 53 г</li><li><b>Масло</b>: 40 г</li></ul></div><div class="ingredient-group"><h5>Овощи — конкретно</h5><ul class="ingredient-list exact"><li><b>Брокколи</b>: 550 г</li><li><b>Морковь</b>: 450 г</li><li><b>Сладкий перец</b>: 400 г</li><li><b>Капуста белокочанная/пекинская</b>: 400 г</li><li><b>Репчатый лук</b>: 200 г</li><li><b>Огурцы свежие</b>: 250 г</li><li><b>Кабачок</b>: 200 г</li></ul></div><div class="ingredient-group"><h5>Специи и мелкие добавки</h5><ul class="ingredient-list exact"><li><b>Чеснок</b>: 15 г — ~3 зубчика</li><li><b>Имбирь свежий</b>: 20 г — кусочек ~3–4 см</li><li><b>Вода</b>: 100 мл — для соуса</li><li><b>Кунжут</b>: 15 г — необязательно, для подачи</li></ul></div><div class="tipbox veg-usage"><b>Куда идут овощи</b><p>Брокколи, морковь, перец, лук и кабачок готовятся с курицей. Капуста и огурцы остаются свежими и добавляются после разогрева.</p></div></div>
+<div>
+<h4>Пошагово</h4>
+<div class="steps"><div>Сначала сделать соус: смешать соевый соус, мёд, чеснок, имбирь и около 100 мл воды.</div><div>Курицу нарезать небольшими одинаковыми кусочками. Морковь и перец — тоньше, брокколи разобрать на небольшие соцветия.</div><div>В большой глубокой сковороде прогреть масло.</div><div>Готовить курицу 6–8 минут, периодически перемешивая.</div><div>Добавить морковь, через 2–3 минуты — сладкий перец, затем брокколи.</div><div>Влить соус и готовить ещё 5–7 минут, пока он слегка не загустеет и не покроет курицу.</div><div>Бурый рис сварить отдельно.</div><div>Свежую капусту или огурец не смешивать с горячей частью заранее; добавлять при подаче.</div><div>Разложить по 8 контейнерам.</div></div>
+<div class="tipbox">
+<b>Разогрев</b>
+<p>Разогреть курицу, рис и приготовленные овощи. Свежую капусту/огурец добавить после.</p>
+</div>
+<div class="tipbox soft">
+<b>Полезная настройка</b>
+<p>Это самое лёгкое из основных блюд месяца; при голоде после него нормально добавить фрукт или йогурт.</p>
+</div>
+</div>
+</div>
+</details>
+</div>
+</article>
+<div class="next"><a href="#lunches">Дальше →</a></div>
+</div>
+</section>
+<section class="page" data-route="lunches" id="page-lunches"><div class="page-shell">
+<div class="page-head"><div class="kicker">Обеды</div><h2>Насте — домашняя еда, тебе — ориентир</h2></div>
+<div class="grid-2">
+<article class="card panel"><h3>Настины рабочие контейнеры</h3><p><b>Пн:</b> субботнее блюдо.</p><p><b>Вт–Ср:</b> понедельничное блюдо.</p><p><b>Чт–Пт:</b> средовое блюдо.</p><p class="small muted">Контейнер = её обычная порция из таблицы конкретного рецепта.</p></article>
+<article class="card panel"><h3>Твой рабочий обед</h3><p><b>Ориентир: 600–750 ккал</b></p><div class="plate"><div class="veg">Овощи<br/><span class="small">200–300 г</span></div><div class="protein">Белок<br/><span class="small">150–180 г готового мяса/птицы</span></div><div class="carbs">Гарнир<br/><span class="small">180–220 г готовой крупы или 250–300 г картофеля</span></div></div><p><b>Ориентир:</b> Б 35–45 · Ж 15–25 · У 60–90 · клетчатка 8–12 г.</p></article>
+</div>
+<article class="card panel" style="margin-top:18px"><h3>Примеры</h3><div class="grid-3" style="margin-top:12px"><div><b>Курица + гречка</b><p class="small">170 г готовой курицы + 200 г готовой гречки + 250 г овощей.</p></div><div><b>Котлета + картофель</b><p class="small">Котлета из индейки + 250–300 г картофеля + овощи.</p></div><div><b>Паста</b><p class="small">Мясная паста + большой салат.</p></div></div></article>
+<div class="next"><a href="#rules">Правила →</a></div>
+</div></section>
+<section class="page" data-route="rules" id="page-rules"><div class="page-shell">
+<div class="page-head"><div class="kicker">Справочник</div><h2>Правила, замены и запасы</h2></div>
+<div class="grid-3">
+<article class="card panel"><h3>Гарвардская тарелка — ориентир</h3><p>Не надо делить каждый ужин геометрически. Важнее недельный баланс.</p></article>
+<article class="card panel"><h3>Свежие овощи</h3><p>Меняйте огурец, помидор, капусту, перец, зелень — и одно и то же приготовленное блюдо ощущается по-разному.</p></article>
+<article class="card panel"><h3>Если голодно</h3><p>Добавьте гарнир, хлеб, фрукт или йогурт. Не урезайте белок и овощи в первую очередь.</p></article>
+<article class="card panel"><h3>Если слишком сытно</h3><p>Уменьшите крупу/рис/картофель. В блюдах с бобовыми лучше не резать фасоль или чечевицу первой.</p></article>
+<article class="card panel"><h3>Перекусы</h3><p>Только по голоду: фрукт, йогурт, орехи, сыр, кефир, немного шоколада.</p></article>
+<article class="card panel"><h3>Клетчатка</h3><p>Овсянка, булгур, гречка, фасоль, чечевица, овощи, фрукты, чиа и хумус — основа.</p></article>
+</div>
+<h3 style="margin:28px 0 14px">Что удобно всегда держать дома</h3>
+<div class="pantry">
+<div><b>Крупы</b><span class="small muted">овсянка, гречка, булгур, бурый рис, цельнозерновая паста</span></div>
+<div><b>Консервы</b><span class="small muted">фасоль, кукуруза, пассата</span></div>
+<div><b>Добавки</b><span class="small muted">хумус, чиа, лён, орехи, масло</span></div>
+<div><b>Специи</b><span class="small muted">паприка, копчёная паприка, карри, куркума, чеснок, травы</span></div>
+<div><b>Молочное</b><span class="small muted">натуральный йогурт, творог, немного сыра</span></div>
+<div><b>Свежие овощи</b><span class="small muted">огурцы, помидоры, капуста, перец, зелень</span></div>
+<div><b>Для духовки</b><span class="small muted">кабачок, баклажан, морковь, брокколи</span></div>
+<div><b>Фрукты</b><span class="small muted">бананы, яблоки, груши, ягоды</span></div>
+</div>
+<article class="card panel" style="margin-top:18px"><h3>Фотографии</h3><p class="small">Папка <code>images</code> должна лежать рядом с HTML. Имена файлов уже прописаны в карточках рецептов. Если файла нет, показывается аккуратный плейсхолдер.</p></article>
+<p class="tiny muted" style="margin-top:18px">КБЖУ и готовый вес — ориентировочные значения. Конкретные продукты, жирность фарша, количество впитавшейся воды и степень запекания могут менять результат примерно на 10–15%.</p>
+</div></section>
+</main>
+</div>
+<script>
+const pages=[...document.querySelectorAll('.page')];
+const links=[...document.querySelectorAll('.nav-link')];
+const body=document.body;
+function route(){const r=location.hash.replace('#','').trim();return r||'home'}
+function show(){
+  let r=route(); if(!pages.some(p=>p.dataset.route===r)) r='home';
+  pages.forEach(p=>p.classList.toggle('active',p.dataset.route===r));
+  links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+r));
+  window.scrollTo({top:0,behavior:'instant'});
+  body.classList.remove('drawer-open');
+}
+window.addEventListener('hashchange',show);show();
+document.getElementById('menuBtn')?.addEventListener('click',()=>body.classList.toggle('drawer-open'));
+document.getElementById('drawerBackdrop')?.addEventListener('click',()=>body.classList.remove('drawer-open'));
+links.forEach(a=>a.addEventListener('click',()=>body.classList.remove('drawer-open')));
+</script>
+</body>
+</html>
