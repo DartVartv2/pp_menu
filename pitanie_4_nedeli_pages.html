@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f5f3ec" />
+  <title>Питание на 4 недели — Артём и Настя</title>
+  <style>
+    :root{
+      --bg:#f5f3ec;
+      --paper:#fffdf9;
+      --ink:#19231d;
+      --muted:#6b746f;
+      --line:#e0e2dc;
+      --green:#61784a;
+      --green-soft:#e8efdf;
+      --orange:#c8732e;
+      --orange-soft:#f9eadc;
+      --blue:#507a95;
+      --blue-soft:#e7f0f5;
+      --purple:#785b90;
+      --purple-soft:#eee7f3;
+      --shadow:0 18px 55px rgba(31,39,34,.10);
+      --radius:24px;
+      --sidebar:260px;
+      --max:1320px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%}
+    body{
+      background:
+        radial-gradient(circle at 5% 0%, rgba(97,120,74,.12), transparent 28rem),
+        radial-gradient(circle at 100% 10%, rgba(200,115,46,.08), transparent 30rem),
+        var(--bg);
+      color:var(--ink);
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      line-height:1.58;
+    }
+    button,input{font:inherit}
+    a{color:inherit}
+    img{display:block;max-width:100%}
+    h1,h2,h3,h4{margin:0;line-height:1.15;color:#142019}
+    h1{font-size:clamp(2.1rem,5vw,4.8rem);letter-spacing:-.045em}
+    h2{font-size:clamp(1.65rem,3vw,2.65rem);letter-spacing:-.03em}
+    h3{font-size:1.3rem}
+    p{margin:.58rem 0 0}
+    code{background:#f0f1ec;border-radius:7px;padding:.12rem .35rem}
+    .muted{color:var(--muted)}
+    .small{font-size:.9rem}
+    .tiny{font-size:.8rem}
+    .kicker{
+      font-size:.78rem;
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--green);
+      margin-bottom:8px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:.4rem;
+      border:1px solid #dde2da;
+      background:#f4f6f1;
+      padding:.46rem .72rem;
+      border-radius:999px;
+      font-size:.82rem;
+      font-weight:820;
+    }
+    .card{
+      background:rgba(255,253,249,.94);
+      border:1px solid rgba(72,82,76,.14);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+
+    .app{
+      width:min(var(--max),100%);
+      min-height:100vh;
+      margin:auto;
+      display:grid;
+      grid-template-columns:var(--sidebar) 1fr;
+    }
+
+    .sidebar{
+      position:sticky;
+      top:0;
+      height:100vh;
+      padding:22px 16px;
+      border-right:1px solid rgba(71,80,74,.12);
+      background:rgba(248,246,240,.86);
+      backdrop-filter:blur(18px);
+      overflow:auto;
+      z-index:30;
+    }
+    .brand{
+      padding:10px 10px 20px;
+    }
+    .brand b{display:block;font-size:1.2rem;letter-spacing:-.03em}
+    .brand span{color:var(--muted);font-size:.8rem}
+    .nav-group{margin:14px 0}
+    .nav-label{
+      padding:0 10px 7px;
+      color:#8a918c;
+      font-size:.68rem;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-weight:900;
+    }
+    .nav-link{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+      border-radius:13px;
+      padding:10px 11px;
+      color:#4b5650;
+      font-weight:760;
+      font-size:.9rem;
+      margin:3px 0;
+      transition:.16s ease;
+    }
+    .nav-link:hover{background:#eceee8;color:#1a211d}
+    .nav-link.active{background:#1f2b24;color:white}
+    .nav-link .icon{
+      width:26px;height:26px;
+      border-radius:9px;
+      background:rgba(255,255,255,.1);
+      display:grid;place-items:center;
+      font-size:.8rem;
+      font-weight:950;
+    }
+    .sidebar-bottom{
+      margin-top:22px;
+      border-top:1px solid var(--line);
+      padding:16px 8px 0;
+    }
+    .print-btn{
+      width:100%;
+      border:0;
+      cursor:pointer;
+      background:#e9ece6;
+      color:#27332b;
+      border-radius:12px;
+      padding:.72rem .85rem;
+      font-weight:850;
+    }
+
+    .main{
+      min-width:0;
+      padding:28px;
+    }
+
+    .mobile-top{
+      display:none;
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(245,243,236,.9);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--line);
+      padding:10px 12px;
+    }
+    .mobile-top .row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .menu-btn{
+      border:0;
+      border-radius:10px;
+      padding:.6rem .75rem;
+      background:#1f2b24;
+      color:#fff;
+      font-weight:850;
+      cursor:pointer;
+    }
+
+    .page{display:none;animation:fade .16s ease}
+    .page.active{display:block}
+    @keyframes fade{from{opacity:.4;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+    .page-shell{max-width:1040px;margin:0 auto 70px}
+    .page-head{
+      margin-bottom:24px;
+      padding:6px 4px;
+    }
+    .page-head p{max-width:800px;color:var(--muted)}
+    .hero{
+      padding:44px;
+      overflow:hidden;
+      position:relative;
+      min-height:430px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      width:340px;height:340px;
+      right:-80px;bottom:-110px;
+      border-radius:50%;
+      background:linear-gradient(145deg,rgba(97,120,74,.24),rgba(200,115,46,.14));
+      filter:blur(2px);
+    }
+    .hero > *{position:relative;z-index:1}
+    .hero p{font-size:1.08rem;max-width:760px}
+    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+    .action{
+      text-decoration:none;
+      padding:.78rem 1rem;
+      border-radius:13px;
+      border:1px solid #dcded8;
+      background:#fff;
+      font-weight:850;
+    }
+    .action.primary{background:var(--green);border-color:var(--green);color:white}
+    .stat-grid{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:12px;
+    }
+    .stat{padding:18px}
+    .stat b{font-size:1.75rem;display:block;letter-spacing:-.04em}
+    .stat span{font-size:.8rem;color:var(--muted)}
+
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .panel{padding:24px}
+    .panel ul{padding-left:1.15rem;margin:.7rem 0 0}
+    .panel li{margin:.28rem 0}
+
+    .timeline{
+      display:grid;
+      grid-template-columns:repeat(7,1fr);
+      gap:10px;
+      margin-top:18px;
+    }
+    .day{
+      padding:14px 12px;
+      min-height:120px;
+      border-radius:15px;
+      border:1px solid var(--line);
+      background:#fffdf9;
+    }
+    .day.cook{background:#edf2e7;border-color:#d4dfc9}
+    .day b{display:block;margin-bottom:8px}
+    .day span{display:block;font-size:.79rem;color:var(--muted)}
+
+    .macro-row{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:8px;
+      margin-top:18px;
+    }
+    .macro{
+      border-radius:13px;
+      padding:10px;
+      background:#f1f2ed;
+      text-align:center;
+    }
+    .macro b{display:block;font-size:1.05rem}
+    .macro span{font-size:.71rem;color:var(--muted)}
+
+    .steps{counter-reset:step;display:grid;gap:10px;margin-top:14px}
+    .steps div{
+      counter-increment:step;
+      position:relative;
+      padding-left:39px;
+      min-height:30px;
+    }
+    .steps div::before{
+      content:counter(step);
+      position:absolute;
+      left:0;top:0;
+      width:28px;height:28px;
+      border-radius:50%;
+      background:#e9ede6;
+      display:grid;place-items:center;
+      font-size:.78rem;
+      font-weight:950;
+    }
+    .chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
+    .chip{
+      border:1px solid #e2e3dd;
+      background:#faf9f5;
+      border-radius:999px;
+      padding:.38rem .6rem;
+      font-size:.77rem;
+      font-weight:750;
+    }
+
+    .meal{
+      overflow:hidden;
+      display:grid;
+      grid-template-columns:320px 1fr;
+      margin-bottom:18px;
+    }
+    .meal-media{
+      min-height:330px;
+      background:linear-gradient(135deg,#ece8dd,#d8ded3);
+      position:relative;
+      overflow:hidden;
+    }
+    .meal-media img{width:100%;height:100%;object-fit:cover}
+    .meal-media.fallback::after{
+      content:"Фото блюда";
+      position:absolute;inset:0;
+      display:grid;place-items:center;
+      color:#6f7972;font-weight:900;
+    }
+    .meal-body{padding:26px}
+    .meal-top{
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      align-items:flex-start;
+    }
+    .when{font-size:.76rem;font-weight:900;color:var(--muted);letter-spacing:.06em;margin-bottom:5px}
+    .servings{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin-top:16px;
+    }
+    .serving{
+      padding:12px;
+      border-radius:13px;
+      background:#f3f4ef;
+      font-size:.85rem;
+    }
+    .serving b{display:block}
+
+    details{
+      margin-top:16px;
+      padding-top:14px;
+      border-top:1px solid #e4e6df;
+    }
+    summary{
+      cursor:pointer;
+      list-style:none;
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      font-weight:900;
+    }
+    summary::-webkit-details-marker{display:none}
+    summary::after{content:"+";font-size:1.4rem;font-weight:500}
+    details[open] summary::after{content:"–"}
+    .detail-grid{
+      display:grid;
+      grid-template-columns:.85fr 1.15fr;
+      gap:24px;
+      margin-top:16px;
+    }
+    .ingredient-list{padding-left:1.15rem}
+    .ingredient-list li{margin:.28rem 0}
+
+    .week-strip{
+      border-radius:18px;
+      padding:18px 20px;
+      margin-bottom:16px;
+    }
+    .week1{background:var(--green-soft)}
+    .week2{background:var(--orange-soft)}
+    .week3{background:var(--blue-soft)}
+    .week4{background:var(--purple-soft)}
+
+    .calendar{
+      display:grid;
+      grid-template-columns:repeat(7,1fr);
+      gap:8px;
+      margin-bottom:18px;
+    }
+    .cal{
+      min-height:88px;
+      padding:10px;
+      background:#fffdf9;
+      border:1px solid var(--line);
+      border-radius:12px;
+    }
+    .cal b{font-size:.78rem}
+    .cal span{display:block;font-size:.71rem;color:var(--muted);margin-top:5px}
+
+    .plate{
+      margin-top:16px;
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:9px;
+    }
+    .plate > div{
+      border-radius:15px;
+      padding:14px;
+      min-height:92px;
+      display:grid;place-items:center;
+      text-align:center;
+      font-weight:850;
+    }
+    .veg{background:#e6efdc;grid-row:span 2}
+    .protein{background:#f4e0d4}
+    .carbs{background:#efe8c9}
+
+    .pantry{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:12px;
+    }
+    .pantry div{
+      border:1px solid var(--line);
+      border-radius:15px;
+      background:#fffdf9;
+      padding:15px;
+    }
+    .pantry b{display:block}
+
+    .next{
+      margin-top:24px;
+      display:flex;
+      justify-content:flex-end;
+    }
+    .next a{
+      text-decoration:none;
+      background:#1f2b24;
+      color:#fff;
+      padding:.75rem .95rem;
+      border-radius:12px;
+      font-weight:850;
+    }
+
+    .mobile-drawer-backdrop{display:none}
+
+    @media(max-width:980px){
+      .app{grid-template-columns:1fr}
+      .sidebar{
+        position:fixed;
+        left:0;top:0;
+        width:min(310px,86vw);
+        transform:translateX(-105%);
+        transition:.2s ease;
+        z-index:70;
+        box-shadow:var(--shadow);
+      }
+      body.drawer-open .sidebar{transform:translateX(0)}
+      .mobile-top{display:block}
+      .main{padding:16px}
+      .mobile-drawer-backdrop{
+        display:block;
+        position:fixed;inset:0;
+        background:rgba(20,28,23,.35);
+        z-index:60;
+        opacity:0;
+        pointer-events:none;
+        transition:.2s;
+      }
+      body.drawer-open .mobile-drawer-backdrop{opacity:1;pointer-events:auto}
+      .grid-3,.grid-4{grid-template-columns:1fr 1fr}
+      .timeline,.calendar{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:700px){
+      .hero{padding:28px;min-height:360px}
+      .stat-grid,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr 1fr}
+      .meal{grid-template-columns:1fr}
+      .meal-media{min-height:260px}
+      .detail-grid,.servings{grid-template-columns:1fr}
+      .macro-row{grid-template-columns:repeat(2,1fr)}
+      .pantry{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:460px){
+      .stat-grid,.grid-2,.grid-3,.grid-4,.pantry{grid-template-columns:1fr}
+      .main{padding:10px}
+      .panel,.meal-body{padding:18px}
+    }
+
+    @media print{
+      .sidebar,.mobile-top,.mobile-drawer-backdrop{display:none!important}
+      .app{display:block}
+      .main{padding:0}
+      .page{display:block!important;page-break-after:always}
+      .page:last-child{page-break-after:auto}
+      .card{box-shadow:none}
+      details > *:not(summary){display:block!important}
+      summary::after{display:none}
+    }
+  </style>
+</head>
+<body>
+
+<div class="mobile-top">
+  <div class="row">
+    <button class="menu-btn" id="menuBtn">☰ Меню</button>
+    <b>Питание · 4 недели</b>
+  </div>
+</div>
+
+<div class="mobile-drawer-backdrop" id="drawerBackdrop"></div>
+
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <b>Питание на 4 недели</b>
+      <span>Артём + Настя</span>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-label">Основное</div>
+      <a class="nav-link" href="#home"><span class="icon">⌂</span>Главная</a>
+      <a class="nav-link" href="#system"><span class="icon">3×</span>Как готовить</a>
+      <a class="nav-link" href="#breakfasts"><span class="icon">☕</span>Завтраки</a>
+      <a class="nav-link" href="#lunches"><span class="icon">🥣</span>Обеды</a>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-label">Меню по неделям</div>
+      <a class="nav-link" href="#week1"><span class="icon">1</span>Неделя 1</a>
+      <a class="nav-link" href="#week2"><span class="icon">2</span>Неделя 2</a>
+      <a class="nav-link" href="#week3"><span class="icon">3</span>Неделя 3</a>
+      <a class="nav-link" href="#week4"><span class="icon">4</span>Неделя 4</a>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-label">Справочник</div>
+      <a class="nav-link" href="#rules"><span class="icon">✓</span>Правила и запасы</a>
+    </div>
+
+    <div class="sidebar-bottom">
+      <button class="print-btn" onclick="window.print()">Печать / сохранить PDF</button>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <!-- HOME -->
+    <section class="page" id="page-home" data-route="home">
+      <div class="page-shell">
+        <article class="card hero">
+          <div class="kicker">Минимум готовки · максимум понятности</div>
+          <h1>Питание<br>на 4 недели</h1>
+          <p>
+            Один HTML, но как маленькое приложение: отдельные страницы с завтраками,
+            схемой готовки, 12 рецептами, рабочими обедами, порциями и КБЖУ.
+          </p>
+          <div class="hero-actions">
+            <a class="action primary" href="#week1">Начать с недели 1</a>
+            <a class="action" href="#system">Посмотреть схему</a>
+          </div>
+        </article>
+
+        <div class="stat-grid">
+          <div class="card stat"><b>12</b><span>основных блюд</span></div>
+          <div class="card stat"><b>3</b><span>готовки в неделю</span></div>
+          <div class="card stat"><b>21</b><span>домашняя порция в неделю</span></div>
+          <div class="card stat"><b>2–3 мин</b><span>обычный завтрак утром</span></div>
+        </div>
+
+        <div class="grid-2" style="margin-top:18px">
+          <article class="card panel">
+            <div class="kicker">Тебе</div>
+            <h3>Основная порция</h3>
+            <ul>
+              <li>мясо: <b>170–180 г сырого</b></li>
+              <li>крупа: <b>60–70 г сухой</b></li>
+              <li>или картофель: <b>280–300 г</b></li>
+              <li>овощи: <b>300–350 г</b></li>
+            </ul>
+            <div class="macro-row">
+              <div class="macro"><b>650–820</b><span>ккал</span></div>
+              <div class="macro"><b>50–62</b><span>Б, г</span></div>
+              <div class="macro"><b>12–30</b><span>Ж, г</span></div>
+              <div class="macro"><b>70–100</b><span>У, г</span></div>
+              <div class="macro"><b>11–26</b><span>клетч., г</span></div>
+            </div>
+          </article>
+
+          <article class="card panel">
+            <div class="kicker">Насте</div>
+            <h3>Основная порция</h3>
+            <ul>
+              <li>мясо: <b>120–135 г сырого</b></li>
+              <li>крупа: <b>40–50 г сухой</b></li>
+              <li>или картофель: <b>200–220 г</b></li>
+              <li>овощи: <b>220–280 г</b></li>
+            </ul>
+            <div class="macro-row">
+              <div class="macro"><b>500–625</b><span>ккал</span></div>
+              <div class="macro"><b>37–47</b><span>Б, г</span></div>
+              <div class="macro"><b>9–24</b><span>Ж, г</span></div>
+              <div class="macro"><b>53–78</b><span>У, г</span></div>
+              <div class="macro"><b>9–20</b><span>клетч., г</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SYSTEM -->
+    <section class="page" id="page-system" data-route="system">
+      <div class="page-shell">
+        <div class="page-head">
+          <div class="kicker">Система недели</div>
+          <h2>Три готовки закрывают почти всё питание дома</h2>
+          <p>Суббота — большая готовка, понедельник — средняя, среда — большая. Воскресенье без готовки.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card panel">
+            <span class="pill">Суббота</span>
+            <h3 style="margin-top:12px">7 порций</h3>
+            <p><b>3 тебе + 4 Насте</b></p>
+            <p class="muted small">Сб ужин · Вс обед · Вс ужин · Пн обед Насти</p>
+          </article>
+          <article class="card panel">
+            <span class="pill">Понедельник</span>
+            <h3 style="margin-top:12px">6 порций</h3>
+            <p><b>2 тебе + 4 Насте</b></p>
+            <p class="muted small">Пн ужин · Вт обед Насти · Вт ужин · Ср обед Насти</p>
+          </article>
+          <article class="card panel">
+            <span class="pill">Среда</span>
+            <h3 style="margin-top:12px">8 порций</h3>
+            <p><b>3 тебе + 5 Насте</b></p>
+            <p class="muted small">Ср ужин · Чт обед Насти · Чт ужин · Пт обед Насти · Пт ужин</p>
+          </article>
+        </div>
+
+        <div class="timeline">
+          <div class="day cook"><b>Сб</b><span>Большая готовка №1 + запеканка на завтраки при желании.</span></div>
+          <div class="day"><b>Вс</b><span>Обед и ужин уже готовы.</span></div>
+          <div class="day cook"><b>Пн</b><span>Готовка №2 после работы.</span></div>
+          <div class="day"><b>Вт</b><span>Только разогреть.</span></div>
+          <div class="day cook"><b>Ср</b><span>Готовка №3.</span></div>
+          <div class="day"><b>Чт</b><span>Только разогреть.</span></div>
+          <div class="day"><b>Пт</b><span>Только разогреть.</span></div>
+        </div>
+
+        <div class="grid-2" style="margin-top:18px">
+          <article class="card panel">
+            <h3>Размер твоего контейнера</h3>
+            <ul>
+              <li>170–180 г сырого мяса</li>
+              <li>60–70 г сухой крупы или 280–300 г картофеля</li>
+              <li>300–350 г овощей</li>
+              <li>умеренно масла / соуса / хумуса</li>
+            </ul>
+          </article>
+          <article class="card panel">
+            <h3>Размер Настиного контейнера</h3>
+            <ul>
+              <li>120–135 г сырого мяса</li>
+              <li>40–50 г сухой крупы или 200–220 г картофеля</li>
+              <li>220–280 г овощей</li>
+              <li>рабочий контейнер ≈ домашней порции</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="next"><a href="#breakfasts">Дальше: завтраки →</a></div>
+      </div>
+    </section>
+
+    <!-- BREAKFASTS -->
+    <section class="page" id="page-breakfasts" data-route="breakfasts">
+      <div class="page-shell">
+        <div class="page-head">
+          <div class="kicker">Утро</div>
+          <h2>Завтраки без готовки по утрам</h2>
+          <p>База — овсянка. Несколько дней в месяц — заранее приготовленная запеканка, творог или йогурт с мюсли.</p>
+        </div>
+
+        <div class="grid-2">
+          <article class="card panel">
+            <h3>Быстрая овсянка</h3>
+            <p class="muted small">2–3 минуты утром.</p>
+            <div class="grid-2" style="margin-top:14px">
+              <div>
+                <b>Тебе</b>
+                <p>60 г овсянки · 120 г йогурта · 100–150 г фруктов · 8 г чиа/льна · 5–10 г орехов.</p>
+                <p><b>≈ 450–500 ккал · Б 22–27 · клетчатка 10–13 г</b></p>
+              </div>
+              <div>
+                <b>Насте</b>
+                <p>45 г овсянки · 100 г йогурта · 80–120 г фруктов · 6 г чиа/льна · 5 г орехов.</p>
+                <p><b>≈ 350–400 ккал · Б 18–21 · клетчатка 8–10 г</b></p>
+              </div>
+            </div>
+            <div class="steps">
+              <div>Залить овсянку кипятком.</div>
+              <div>Подождать 2–3 минуты.</div>
+              <div>Добавить йогурт, фрукт, семена и орехи.</div>
+            </div>
+            <div class="chips">
+              <span class="chip">банан + корица</span><span class="chip">яблоко + орех</span>
+              <span class="chip">ягоды + чиа</span><span class="chip">банан + какао</span>
+              <span class="chip">груша + лён</span>
+            </div>
+          </article>
+
+          <article class="card panel">
+            <h3>Запечённая овсянка</h3>
+            <p><b>300 г овсянки · 600 мл молока · 4 яйца · 300 г бананов · 300 г яблок/ягод · 30 г чиа.</b></p>
+            <div class="steps">
+              <div>Духовка 180 °C.</div>
+              <div>Размять бананы, добавить яйца и молоко.</div>
+              <div>Добавить овсянку, чиа и фрукты.</div>
+              <div>Выпекать 30–40 минут.</div>
+              <div>Разделить на 6 порций.</div>
+            </div>
+          </article>
+
+          <article class="card panel">
+            <h3>Творожная запеканка</h3>
+            <p><b>800 г творога · 3 яйца · 150 г йогурта · 60 г овсяной муки · 250 г банана · 200 г ягод.</b></p>
+            <div class="steps">
+              <div>Размять банан и смешать с творогом.</div>
+              <div>Добавить яйца, йогурт и овсянку.</div>
+              <div>Добавить ягоды.</div>
+              <div>Выпекать 40 минут при 180 °C.</div>
+              <div>Разделить на 6 порций.</div>
+            </div>
+          </article>
+
+          <article class="card panel">
+            <h3>Совсем без готовки</h3>
+            <p><b>Творог:</b> тебе 200 г, Насте 150 г + йогурт + фрукт + немного овсянки и орехов.</p>
+            <p><b>Йогурт + мюсли:</b> тебе 250 г йогурта + 60 г мюсли; Насте 200 г + 45 г мюсли. Добавить фрукт.</p>
+          </article>
+        </div>
+
+        <article class="card panel" style="margin-top:18px">
+          <h3>Ритм завтраков на 4 недели</h3>
+          <div class="grid-4" style="margin-top:14px">
+            <div><b>Неделя 1</b><p class="small">Сб овсянка · Вс–Вт запечённая овсянка · Ср–Чт овсянка · Пт йогурт + мюсли.</p></div>
+            <div><b>Неделя 2</b><p class="small">Сб овсянка · Вс–Вт творожная запеканка · Ср–Чт овсянка · Пт творог + фрукт.</p></div>
+            <div><b>Неделя 3</b><p class="small">Сб шоколадная овсянка · Вс–Вт запечённая овсянка · Ср–Чт яблочная · Пт йогурт + мюсли.</p></div>
+            <div><b>Неделя 4</b><p class="small">Сб овсянка · Вс–Вт творожная запеканка · Ср–Чт грушевая · Пт творог + фрукт.</p></div>
+          </div>
+        </article>
+
+        <div class="next"><a href="#week1">Дальше: неделя 1 →</a></div>
+      </div>
+    </section>
+
+    <!-- WEEK 1 -->
+    <section class="page" id="page-week1" data-route="week1">
+      <div class="page-shell">
+        <div class="page-head week-strip week1">
+          <div class="kicker">Неделя 1</div>
+          <h2>Тефтели · йогуртовая курица · чили</h2>
+          <p>Суббота — 7 порций, понедельник — 6, среда — 8.</p>
+        </div>
+
+        <div class="calendar">
+          <div class="cal"><b>Сб</b><span>Тефтели — ужин</span></div>
+          <div class="cal"><b>Вс</b><span>Тефтели — обед и ужин</span></div>
+          <div class="cal"><b>Пн</b><span>Насте тефтели на обед; вечером курица</span></div>
+          <div class="cal"><b>Вт</b><span>Курица — обед Насти и ужин</span></div>
+          <div class="cal"><b>Ср</b><span>Курица Насте на обед; вечером чили</span></div>
+          <div class="cal"><b>Чт</b><span>Чили — обед Насти и ужин</span></div>
+          <div class="cal"><b>Пт</b><span>Чили — обед Насти и ужин</span></div>
+        </div>
+
+        <article class="card meal">
+          <div class="meal-media">
+            <img src="images/w1-meatballs.jpg" alt="Тефтели из индейки"
+                 onerror="this.style.display='none';this.parentElement.classList.add('fallback')">
+          </div>
+          <div class="meal-body">
+            <div class="meal-top">
+              <div><div class="when">СУББОТА · 7 ПОРЦИЙ</div><h3>Тефтели из индейки в томатном соусе + гречка + овощи</h3></div>
+              <span class="pill">25–35 мин</span>
+            </div>
+            <div class="chips">
+              <span class="chip">индейка 1,08 кг</span><span class="chip">гречка 410 г</span>
+              <span class="chip">овощи ~2,2 кг</span><span class="chip">пассата 620 г</span>
+            </div>
+            <div class="servings">
+              <div class="serving"><b>Тебе</b>≈ 810 ккал · Б 56 · Ж 31 · У 77 · клетчатка ~17 г</div>
+              <div class="serving"><b>Насте</b>≈ 600 ккал · Б 42 · Ж 23 · У 57 · клетчатка ~13 г</div>
+            </div>
+            <details open>
+              <summary>Рецепт по шагам</summary>
+              <div class="detail-grid">
+                <div>
+                  <h4>Ингредиенты</h4>
+                  <ul class="ingredient-list">
+                    <li>1,08 кг фарша индейки</li><li>410 г гречки</li><li>~2,2 кг овощей</li>
+                    <li>620 г пассаты</li><li>240 г йогурта</li><li>55–60 г масла</li>
+                    <li>1 яйцо, лук, чеснок, паприка, зелень, горчица</li>
+                  </ul>
+                </div>
+                <div class="steps">
+                  <div>Духовку разогреть до 195 °C.</div>
+                  <div>Фарш смешать с яйцом, мелким луком, чесноком и специями.</div>
+                  <div>Сформировать 28–32 тефтели и уложить в форму.</div>
+                  <div>Пассату смешать со специями и залить тефтели.</div>
+                  <div>Овощи крупно нарезать, смешать с маслом и специями.</div>
+                  <div>Тефтели запекать 25–30 минут, овощи 30–35 минут.</div>
+                  <div>Гречку залить 800–850 мл воды и варить 15–20 минут.</div>
+                  <div>Соус: йогурт + горчица + чеснок + зелень.</div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <article class="card meal">
+          <div class="meal-media">
+            <img src="images/w1-yogurt-chicken.jpg" alt="Курица в йогуртовом соусе"
+                 onerror="this.style.display='none';this.parentElement.classList.add('fallback')">
+          </div>
+          <div class="meal-body">
+            <div class="meal-top">
+              <div><div class="when">ПОНЕДЕЛЬНИК · 6 ПОРЦИЙ</div><h3>Курица в йогуртово-чесночном соусе + булгур</h3></div>
+              <span class="pill">духовка</span>
+            </div>
+            <div class="chips"><span class="chip">курица 900 г</span><span class="chip">булгур 340 г</span><span class="chip">овощи 1,8 кг</span><span class="chip">йогурт 260–300 г</span></div>
+            <div class="servings">
+              <div class="serving"><b>Тебе</b>≈ 695 ккал · Б 60 · Ж 15 · У 76 · клетчатка ~22 г</div>
+              <div class="serving"><b>Насте</b>≈ 515 ккал · Б 45 · Ж 11 · У 56 · клетчатка ~16 г</div>
+            </div>
+            <details>
+              <summary>Рецепт по шагам</summary>
+              <div class="detail-grid">
+                <ul class="ingredient-list">
+                  <li>900 г курицы</li><li>340 г булгура</li><li>~1,8 кг овощей</li>
+                  <li>260–300 г йогурта</li><li>45–50 г масла</li><li>чеснок, горчица, паприка, травы, лимон</li>
+                </ul>
+                <div class="steps">
+                  <div>Духовка 190 °C.</div>
+                  <div>Курицу нарезать крупно.</div>
+                  <div>180–200 г йогурта смешать с чесноком, горчицей и паприкой; смешать с курицей.</div>
+                  <div>Овощи нарезать крупно и выложить рядом.</div>
+                  <div>Запекать 25–30 минут.</div>
+                  <div>Булгур варить в ~680 мл воды 12–15 минут.</div>
+                  <div>Остаток йогурта смешать с чесноком, зеленью и лимоном.</div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <article class="card meal">
+          <div class="meal-media">
+            <img src="images/w1-chili.jpg" alt="Чили из индейки"
+                 onerror="this.style.display='none';this.parentElement.classList.add('fallback')">
+          </div>
+          <div class="meal-body">
+            <div class="meal-top">
+              <div><div class="when">СРЕДА · 8 ПОРЦИЙ</div><h3>Чили из индейки и фасоли + бурый рис</h3></div>
+              <span class="pill">самое сытное</span>
+            </div>
+            <div class="chips"><span class="chip">индейка 1 кг</span><span class="chip">фасоль 1,15–1,2 кг</span><span class="chip">рис 365 г</span><span class="chip">пассата 1,05 кг</span></div>
+            <div class="servings">
+              <div class="serving"><b>Тебе</b>≈ 910 ккал · Б 59 · Ж 26 · У 106 · клетчатка ~22 г</div>
+              <div class="serving"><b>Насте</b>≈ 670 ккал · Б 43 · Ж 19 · У 79 · клетчатка ~17 г</div>
+            </div>
+            <details>
+              <summary>Рецепт по шагам</summary>
+              <div class="detail-grid">
+                <ul class="ingredient-list">
+                  <li>1 кг фарша индейки</li><li>1,15–1,2 кг фасоли</li><li>365 г бурого риса</li>
+                  <li>~1,75 кг овощей</li><li>1,05 кг пассаты</li><li>~55 г масла</li>
+                  <li>паприка, копчёная паприка, чили, чеснок, зира</li>
+                </ul>
+                <div class="steps">
+                  <div>Лук, морковь и перец мелко нарезать.</div>
+                  <div>Фарш готовить 7–10 минут, разбивая лопаткой.</div>
+                  <div>Добавить овощи на 5–7 минут.</div>
+                  <div>Добавить специи и пассату, тушить 15 минут.</div>
+                  <div>Добавить промытую фасоль и тушить ещё 10 минут.</div>
+                  <div>Бурый рис сварить отдельно.</div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <div class="next"><a href="#week2">Неделя 2 →</a></div>
+      </div>
+    </section>
+
+    <!-- WEEK 2 -->
+    <section class="page" id="page-week2" data-route="week2">
+      <div class="page-shell">
+        <div class="page-head week-strip week2">
+          <div class="kicker">Неделя 2</div>
+          <h2>Один противень · болоньезе · фахита-bowl</h2>
+        </div>
+
+        <article class="card meal">
+          <div class="meal-media">
+            <img src="images/w2-sheet-pan.jpg" alt="Курица с картофелем"
+                 onerror="this.style.display='none';this.parentElement.classList.add('fallback')">
+          </div>
+          <div class="meal-body">
+            <div class="meal-top">
+              <div><div class="when">СУББОТА · 7 ПОРЦИЙ</div><h3>Курица + картофель + овощи одним противнем</h3></div>
+              <span class="pill">самый простой</span>
+            </div>
+            <div class="chips"><span class="chip">курица 1,08 кг</span><span class="chip">картофель 1,78 кг</span><span class="chip">овощи 2,17 кг</span><span class="chip">йогурт 240 г</span></div>
+            <div class="servings">
+              <div class="serving"><b>Тебе</b>≈ 680 ккал · Б 57 · Ж 15 · У 73 · клетчатка ~15 г</div>
+              <div class="serving"><b>Насте</b>≈ 510 ккал · Б 43 · Ж 11 · У 55 · клетчатка ~12 г</div>
+            </div>
+            <details open>
+              <summary>Рецепт по шагам</summary>
+              <div class="detail-grid">
+                <ul class="ingredient-list">
+                  <li>1,08 кг курицы</li><li>1,78 кг картофеля</li><li>~2,17 кг овощей</li>
+                  <li>240 г йогурта</li><li>~60 г масла</li><li>паприка, чеснок, травы</li>
+                </ul>
+                <div class="steps">
+                  <div>Духовка 200 °C.</div>
+                  <div>Картофель дольками смешать с половиной масла и специями.</div>
+                  <div>Запекать картофель отдельно 15 минут.</div>
+                  <div>Добавить крупно нарезанную курицу и овощи.</div>
+                  <div>Запекать ещё 25–30 минут.</div>
+                  <div>Брокколи добавить на последние 15–20 минут.</div>
+                  <div>Соус: йогурт + чеснок + зелень.</div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <article class="card meal">
+          <div class="meal-media">
+            <img src="images/w2-bolognese.jpg" alt="Болоньезе из индейки"
+                 onerror="this.style.display='none';this.parentElement.classList.add('fallback')">
+          </div>
+          <div class="meal-body">
+            <div class="meal-top"><div><div class="when">ПОНЕДЕЛЬНИК · 6 ПОРЦИЙ</div><h3>Цельнозерновая болоньезе из индейки</h3></div><span class="pill">паста</span></div>
+            <div class="chips"><span class="chip">индейка 840 г</span><span class="chip">паста 370 г</span><span class="chip">пассата 780 г</span><span class="chip">сыр 70 г</span></div>
+            <div class="servings">
+              <div class="serving"><b>Тебе</b>≈ 810 ккал · Б 54 · Ж 32 · У 75 · клетчатка ~15 г</div>
+              <div class="serving"><b>Насте</b>≈ 600 ккал · Б 39 · Ж 23 · У 56 · клетчатка ~11 г</div>
+            </div>
+            <details>
+              <summary>Рецепт по шагам</summary>
+              <div class="detail-grid">
+                <ul class="ingredient-list">
+                  <li>840 г фарша индейки</li><li>370 г цельнозерновой пасты</li><li>~1,3 кг овощей</li>
+                  <li>780 г пассаты</li><li>70 г твёрдого сыра</li><li>40 г масла</li>
+                </ul>
+                <div class="steps">
+                  <div>Лук нарезать, морковь натереть, кабачок мелко нарезать.</div>
+                  <div>Фарш готовить 7–10 минут.</div>
+                  <div>Добавить овощи.</div>
+                  <div>Добавить чеснок, травы и пассату; тушить 20 минут.</div>
+                  <div>Пасту сварить на 1–2 минуты меньше инструкции.</div>
+                  <div>Хранить пасту снизу, соус сверху; сыр добавлять при разогреве.</div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <article class="card meal">
+          <div class="meal-media">
+            <img src="images/w2-fajita.jpg" alt="Фахита bowl"
+                 onerror="this.style.display='none';this.parentElement.classList.add('fallback')">
+          </div>
+          <div class="meal-body">
+            <div class="meal-top"><div><div class="when">СРЕДА · 8 ПОРЦИЙ</div><h3>Фахита-bowl с курицей, фасолью и булгуром</h3></div><span class="pill">клетчатка ↑</span></div>
+            <div class="chips"><span class="chip">курица 1,08 кг</span><span class="chip">булгур 365 г</span><span class="chip">фасоль 700 г</span><span class="chip">кукуруза 405 г</span><span class="chip">авокадо 230 г</span></div>
+            <div class="servings">
+              <div class="serving"><b>Тебе</b>≈ 760 ккал · Б 59 · Ж 17 · У 95 · клетчатка ~27 г</div>
+              <div class="serving"><b>Насте</b>≈ 570 ккал · Б 45 · Ж 12 · У 72 · клетчатка ~20 г</div>
+            </div>
+            <details>
+              <summary>Рецепт по шагам</summary>
+              <div class="detail-grid">
+                <ul class="ingredient-list">
+                  <li>1,08 кг курицы</li><li>365 г булгура</li><li>700 г фасоли</li>
+                  <li>405 г кукурузы</li><li>~1,75 кг овощей</li><li>~230 г авокадо</li>
+                </ul>
+                <div class="steps">
+                  <div>Духовка 200 °C.</div>
+                  <div>Курицу и перец нарезать полосками, лук — полукольцами.</div>
+                  <div>Смешать с маслом и специями.</div>
+                  <div>Запекать 25–30 минут, один раз перемешать.</div>
+                  <div>Булгур сварить отдельно.</div>
+                  <div>Фасоль промыть, кукурузу слить и смешать с булгуром.</div>
+                  <div>Авокадо добавлять только перед едой.</div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <div class="next"><a href="#week3">Неделя 3 →</a></div>
+      </div>
+    </section>
+
+    <!-- WEEK 3 -->
+    <section class="page" id="page-week3" data-route="week3">
+      <div class="page-shell">
+        <div class="page-head week-strip week3">
+          <div class="kicker">Неделя 3</div>
+          <h2>Котлеты + хумус · карри · индейка с чечевицей</h2>
+        </div>
+
+        <article class="card meal">
+          <div class="meal-media">
+            <img src="images/w3-cutlets.jpg" alt="Котлеты из индейки"
+                 onerror="this.style.display='none';this.parentElement.classList.add('fallback')">
+          </div>
+          <div class="meal-body">
+            <div class="meal-top"><div><div class="when">СУББОТА · 7 ПОРЦИЙ</div><h3>Котлеты из индейки + булгур + хумус</h3></div><span class="pill">духовка</span></div>
+            <div class="chips"><span class="chip">индейка 1,08 кг</span><span class="chip">булгур 395 г</span><span class="chip">хумус 240 г</span><span class="chip">овощи 2,17 кг</span></div>
+            <div class="servings">
+              <div class="serving"><b>Тебе</b>≈ 790 ккал · Б 52 · Ж 31 · У 76 · клетчатка ~23 г</div>
+              <div class="serving"><b>Насте</b>≈ 600 ккал · Б 40 · Ж 24 · У 59 · клетчатка ~18 г</div>
+            </div>
+            <details open>
+              <summary>Рецепт по шагам</summary>
+              <div class="detail-grid">
+                <ul class="ingredient-list"><li>1,08 кг индейки</li><li>395 г булгура</li><li>240 г хумуса</li><li>2,17 кг овощей</li><li>1 яйцо, лук, чеснок, специи</li></ul>
+                <div class="steps">
+                  <div>Духовка 195 °C.</div>
+                  <div>Фарш смешать с яйцом, луком, чесноком и специями.</div>
+                  <div>Сформировать 16–18 плоских котлет.</div>
+                  <div>Запекать 20–25 минут.</div>
+                  <div>Овощи запечь на втором противне 30–35 минут.</div>
+                  <div>Булгур сварить.</div>
+                  <div>Хумус хранить отдельно и добавлять холодным.</div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <article class="card meal">
+          <div class="meal-media">
+            <img src="images/w3-curry.jpg" alt="Йогуртовая курица карри"
+                 onerror="this.style.display='none';this.parentElement.classList.add('fallback')">
+          </div>
+          <div class="meal-body">
+            <div class="meal-top"><div><div class="when">ПОНЕДЕЛЬНИК · 6 ПОРЦИЙ</div><h3>Йогуртовая курица карри + бурый рис</h3></div><span class="pill">без кокосовых сливок</span></div>
+            <div class="chips"><span class="chip">курица 900 г</span><span class="chip">рис 300 г</span><span class="chip">овощи 1,56 кг</span><span class="chip">йогурт 400 г</span></div>
+            <div class="servings">
+              <div class="serving"><b>Тебе</b>≈ 690 ккал · Б 60 · Ж 14 · У 72</div>
+              <div class="serving"><b>Насте</b>≈ 525 ккал · Б 45 · Ж 11 · У 55</div>
+            </div>
+            <details>
+              <summary>Рецепт по шагам</summary>
+              <div class="detail-grid">
+                <ul class="ingredient-list"><li>900 г курицы</li><li>300 г бурого риса</li><li>1,56 кг овощей</li><li>400 г йогурта</li><li>520 г пассаты</li><li>карри, куркума, чеснок</li></ul>
+                <div class="steps">
+                  <div>Курицу нарезать кубиками и готовить 5–7 минут.</div>
+                  <div>Добавить лук, морковь и перец.</div>
+                  <div>Добавить карри, куркуму и чеснок.</div>
+                  <div>Влить пассату + ~100 мл воды, тушить 10–15 минут.</div>
+                  <div>Добавить брокколи ещё на 7–10 минут.</div>
+                  <div>Убавить огонь, вмешать йогурт и больше активно не кипятить.</div>
+                  <div>Рис сварить отдельно.</div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <article class="card meal">
+          <div class="meal-media">
+            <img src="images/w3-lentils.jpg" alt="Индейка с чечевицей"
+                 onerror="this.style.display='none';this.parentElement.classList.add('fallback')">
+          </div>
+          <div class="meal-body">
+            <div class="meal-top"><div><div class="when">СРЕДА · 8 ПОРЦИЙ</div><h3>Индейка с чечевицей в томатном соусе</h3></div><span class="pill">клетчатка 20+</span></div>
+            <div class="chips"><span class="chip">индейка 890 г</span><span class="chip">чечевица 1,35 кг</span><span class="chip">рис 310 г</span><span class="chip">пассата 1,05 кг</span></div>
+            <div class="servings">
+              <div class="serving"><b>Тебе</b>≈ 815 ккал · Б 53 · Ж 23 · У 96 · клетчатка ~26 г</div>
+              <div class="serving"><b>Насте</b>≈ 625 ккал · Б 41 · Ж 17 · У 74 · клетчатка ~20 г</div>
+            </div>
+            <details>
+              <summary>Рецепт по шагам</summary>
+              <div class="detail-grid">
+                <ul class="ingredient-list"><li>890 г индейки</li><li>1,35 кг готовой чечевицы</li><li>310 г бурого риса</li><li>1,75 кг овощей</li><li>1,05 кг пассаты</li></ul>
+                <div class="steps">
+                  <div>Лук, морковь и перец мелко нарезать.</div>
+                  <div>Индейку готовить 7–8 минут.</div>
+                  <div>Добавить овощи ещё на 5–7 минут.</div>
+                  <div>Добавить специи и пассату, тушить 10 минут.</div>
+                  <div>Добавить чечевицу и при необходимости немного воды.</div>
+                  <div>Тушить ещё 10–15 минут.</div>
+                  <div>Рис сварить отдельно.</div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <div class="next"><a href="#week4">Неделя 4 →</a></div>
+      </div>
+    </section>
+
+    <!-- WEEK 4 -->
+    <section class="page" id="page-week4" data-route="week4">
+      <div class="page-shell">
+        <div class="page-head week-strip week4">
+          <div class="kicker">Неделя 4</div>
+          <h2>Средиземноморская курица · мясной хлеб · терияки-ish</h2>
+        </div>
+
+        <article class="card meal">
+          <div class="meal-media">
+            <img src="images/w4-mediterranean.jpg" alt="Средиземноморская курица"
+                 onerror="this.style.display='none';this.parentElement.classList.add('fallback')">
+          </div>
+          <div class="meal-body">
+            <div class="meal-top"><div><div class="when">СУББОТА · 7 ПОРЦИЙ</div><h3>Средиземноморская курица + булгур</h3></div><span class="pill">овощи + сыр</span></div>
+            <div class="chips"><span class="chip">курица 1,08 кг</span><span class="chip">булгур 395 г</span><span class="chip">овощи 2,17 кг</span><span class="chip">сыр 85 г</span></div>
+            <div class="servings">
+              <div class="serving"><b>Тебе</b>≈ 710 ккал · Б 62 · Ж 17 · У 72 · клетчатка ~21 г</div>
+              <div class="serving"><b>Насте</b>≈ 540 ккал · Б 47 · Ж 13 · У 56 · клетчатка ~16 г</div>
+            </div>
+            <details open>
+              <summary>Рецепт по шагам</summary>
+              <div class="detail-grid">
+                <ul class="ingredient-list"><li>1,08 кг курицы</li><li>395 г булгура</li><li>2,17 кг овощей</li><li>85 г сыра</li><li>240 г йогурта</li><li>орегано, чеснок, лимон</li></ul>
+                <div class="steps">
+                  <div>Духовка 195 °C.</div>
+                  <div>Баклажан, кабачок, перец и курицу нарезать крупно.</div>
+                  <div>Смешать с маслом, чесноком, орегано и паприкой.</div>
+                  <div>Запекать 20 минут.</div>
+                  <div>Добавить помидоры и немного сыра.</div>
+                  <div>Вернуть в духовку ещё на 10 минут.</div>
+                  <div>Булгур сварить отдельно.</div>
+                  <div>Соус: йогурт + чеснок + лимон.</div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <article class="card meal">
+          <div class="meal-media">
+            <img src="images/w4-meatloaf.jpg" alt="Мясной хлеб из индейки"
+                 onerror="this.style.display='none';this.parentElement.classList.add('fallback')">
+          </div>
+          <div class="meal-body">
+            <div class="meal-top"><div><div class="when">ПОНЕДЕЛЬНИК · 6 ПОРЦИЙ</div><h3>Мясной хлеб из индейки + картофель</h3></div><span class="pill">удобно в контейнер</span></div>
+            <div class="chips"><span class="chip">индейка 900 г</span><span class="chip">картофель 1,4 кг</span><span class="chip">овощи 1,82 кг</span></div>
+            <div class="servings">
+              <div class="serving"><b>Тебе</b>≈ 735 ккал · Б 50 · Ж 27 · У 70 · клетчатка ~15 г</div>
+              <div class="serving"><b>Насте</b>≈ 555 ккал · Б 37 · Ж 20 · У 53 · клетчатка ~12 г</div>
+            </div>
+            <details>
+              <summary>Рецепт по шагам</summary>
+              <div class="detail-grid">
+                <ul class="ingredient-list"><li>900 г индейки</li><li>1,4 кг картофеля</li><li>1,82 кг овощей</li><li>1 яйцо</li><li>лук, морковь, чеснок, паприка, пассата</li></ul>
+                <div class="steps">
+                  <div>Духовка 190 °C.</div>
+                  <div>Фарш смешать с яйцом, луком, морковью и специями.</div>
+                  <div>Сформировать «буханку» или уложить в форму.</div>
+                  <div>Сверху тонко смазать пассатой.</div>
+                  <div>Запекать 40–50 минут.</div>
+                  <div>Картофель и овощи запекать рядом 35–40 минут.</div>
+                  <div>После духовки дать мясному хлебу постоять 10 минут.</div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <article class="card meal">
+          <div class="meal-media">
+            <img src="images/w4-teriyaki.jpg" alt="Курица терияки"
+                 onerror="this.style.display='none';this.parentElement.classList.add('fallback')">
+          </div>
+          <div class="meal-body">
+            <div class="meal-top"><div><div class="when">СРЕДА · 8 ПОРЦИЙ</div><h3>Курица терияки-ish + бурый рис + овощи</h3></div><span class="pill">лёгкий ужин</span></div>
+            <div class="chips"><span class="chip">курица 1,215 кг</span><span class="chip">рис 445 г</span><span class="chip">овощи 2,45 кг</span><span class="chip">соевый соус 105 мл</span><span class="chip">мёд 50–55 г</span></div>
+            <div class="servings">
+              <div class="serving"><b>Тебе</b>≈ 665 ккал · Б 53 · Ж 12 · У 78 · клетчатка ~11 г</div>
+              <div class="serving"><b>Насте</b>≈ 505 ккал · Б 40 · Ж 9 · У 61 · клетчатка ~9 г</div>
+            </div>
+            <details>
+              <summary>Рецепт по шагам</summary>
+              <div class="detail-grid">
+                <ul class="ingredient-list"><li>1,215 кг курицы</li><li>445 г бурого риса</li><li>2,45 кг овощей</li><li>105 мл соевого соуса</li><li>50–55 г мёда</li><li>чеснок, имбирь</li></ul>
+                <div class="steps">
+                  <div>Смешать соевый соус, мёд, чеснок, имбирь и ~100 мл воды.</div>
+                  <div>Курицу и овощи нарезать.</div>
+                  <div>Курицу готовить 6–8 минут.</div>
+                  <div>Добавить морковь, затем перец и брокколи.</div>
+                  <div>Влить соус и готовить ещё 5–7 минут.</div>
+                  <div>Бурый рис сварить отдельно.</div>
+                  <div>Свежую капусту или огурец добавлять уже перед едой.</div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <div class="next"><a href="#lunches">Дальше: обеды →</a></div>
+      </div>
+    </section>
+
+    <!-- LUNCHES -->
+    <section class="page" id="page-lunches" data-route="lunches">
+      <div class="page-shell">
+        <div class="page-head">
+          <div class="kicker">Обеды</div>
+          <h2>Насте — домашняя еда, тебе — понятный ориентир</h2>
+        </div>
+
+        <div class="grid-2">
+          <article class="card panel">
+            <h3>Настины рабочие контейнеры</h3>
+            <p><b>Понедельник:</b> субботнее блюдо.</p>
+            <p><b>Вторник–среда:</b> понедельничное блюдо.</p>
+            <p><b>Четверг–пятница:</b> средовое блюдо.</p>
+            <p class="muted small">Контейнер примерно равен её домашней порции. Для разнообразия можно менять подачу: bowl → тортилья, чили → меньше риса, больше основы.</p>
+          </article>
+
+          <article class="card panel">
+            <h3>Твой рабочий обед</h3>
+            <p><b>Цель: примерно 600–750 ккал</b></p>
+            <div class="plate">
+              <div class="veg">Овощи<br><span class="small">200–300 г</span></div>
+              <div class="protein">Белок<br><span class="small">150–180 г готового мяса/птицы</span></div>
+              <div class="carbs">Гарнир<br><span class="small">180–220 г готовой крупы или 250–300 г картофеля</span></div>
+            </div>
+            <p><b>Ориентир:</b> Б 35–45 · Ж 15–25 · У 60–90 · клетчатка 8–12 г.</p>
+          </article>
+        </div>
+
+        <article class="card panel" style="margin-top:18px">
+          <h3>Примеры нормального рабочего обеда для тебя</h3>
+          <div class="grid-3" style="margin-top:14px">
+            <div><b>Вариант 1</b><p class="small">170 г курицы + 200 г готовой гречки + 250 г салата.</p></div>
+            <div><b>Вариант 2</b><p class="small">Котлета из индейки + 250–300 г картофеля + овощи.</p></div>
+            <div><b>Вариант 3</b><p class="small">Мясная паста + большой салат.</p></div>
+          </div>
+        </article>
+
+        <div class="next"><a href="#rules">Дальше: правила и запасы →</a></div>
+      </div>
+    </section>
+
+    <!-- RULES -->
+    <section class="page" id="page-rules" data-route="rules">
+      <div class="page-shell">
+        <div class="page-head">
+          <div class="kicker">Справочник</div>
+          <h2>Правила, замены и постоянный запас</h2>
+          <p>Главная цель — хороший рацион в среднем за неделю, а не идеальная геометрия каждой тарелки.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card panel"><h3>Гарвардская тарелка — ориентир</h3><p>Старайтесь регулярно иметь овощи, белок и нормальный гарнир, но чили, болоньезе и карри не обязаны делиться на идеальные четверти.</p></article>
+          <article class="card panel"><h3>Свежие овощи — главный простой способ менять вкус</h3><p>Меняйте огурцы, помидоры, капусту, перец, зелень, не меняя приготовленное блюдо.</p></article>
+          <article class="card panel"><h3>Перекусы — только по голоду</h3><p>Фрукт, йогурт, немного орехов, сыр, кефир, немного шоколада — нормально.</p></article>
+          <article class="card panel"><h3>Если голодно</h3><p>Добавьте гарнир, хлеб, фрукт, йогурт. Не нужно специально держать рацион слишком низкокалорийным.</p></article>
+          <article class="card panel"><h3>Если слишком сытно</h3><p>Сначала уменьшайте крупу, рис или картофель, а не овощи и не бобовые.</p></article>
+          <article class="card panel"><h3>Клетчатка</h3><p>Овсянка, булгур, гречка, фасоль, чечевица, овощи, фрукты, чиа и хумус дают хорошую базу.</p></article>
+        </div>
+
+        <h3 style="margin:28px 0 14px">Что всегда удобно иметь дома</h3>
+        <div class="pantry">
+          <div><b>Крупы</b><span class="muted small">овсянка, гречка, булгур, бурый рис, цельнозерновая паста</span></div>
+          <div><b>Консервы</b><span class="muted small">фасоль, кукуруза, пассата</span></div>
+          <div><b>Добавки</b><span class="muted small">хумус, чиа, лён, орехи, растительное масло</span></div>
+          <div><b>Специи</b><span class="muted small">паприка, копчёная паприка, карри, куркума, чеснок, травы</span></div>
+          <div><b>Молочное</b><span class="muted small">натуральный йогурт, творог, немного сыра</span></div>
+          <div><b>Свежие овощи</b><span class="muted small">огурцы, помидоры, капуста, перец, зелень</span></div>
+          <div><b>Для духовки</b><span class="muted small">кабачок, баклажан, морковь, брокколи, цветная капуста</span></div>
+          <div><b>Фрукты</b><span class="muted small">бананы, яблоки, груши, ягоды</span></div>
+        </div>
+
+        <article class="card panel" style="margin-top:18px">
+          <h3>Картинки блюд</h3>
+          <p class="small">
+            Положите рядом с HTML папку <code>images</code> с файлами:
+            <code>w1-meatballs.jpg</code>, <code>w1-yogurt-chicken.jpg</code>, <code>w1-chili.jpg</code>,
+            <code>w2-sheet-pan.jpg</code>, <code>w2-bolognese.jpg</code>, <code>w2-fajita.jpg</code>,
+            <code>w3-cutlets.jpg</code>, <code>w3-curry.jpg</code>, <code>w3-lentils.jpg</code>,
+            <code>w4-mediterranean.jpg</code>, <code>w4-meatloaf.jpg</code>, <code>w4-teriyaki.jpg</code>.
+          </p>
+        </article>
+
+        <p class="tiny muted" style="margin-top:18px">
+          КБЖУ и клетчатка ориентировочные: конкретные марки продуктов могут заметно отличаться.
+          Это бытовой план питания, а не медицинская диета.
+        </p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+  const routes = [...document.querySelectorAll('.page')];
+  const links = [...document.querySelectorAll('.nav-link')];
+  const body = document.body;
+  const menuBtn = document.getElementById('menuBtn');
+  const backdrop = document.getElementById('drawerBackdrop');
+
+  function currentRoute(){
+    const raw = location.hash.replace('#','').trim();
+    return raw || 'home';
+  }
+
+  function showRoute(){
+    const route = currentRoute();
+    const exists = routes.some(p => p.dataset.route === route);
+    const activeRoute = exists ? route : 'home';
+
+    routes.forEach(p => p.classList.toggle('active', p.dataset.route === activeRoute));
+    links.forEach(a => {
+      const r = a.getAttribute('href').replace('#','');
+      a.classList.toggle('active', r === activeRoute);
+    });
+
+    document.title = {
+      home:'Питание на 4 недели',
+      system:'Как устроена неделя — питание',
+      breakfasts:'Завтраки — питание',
+      week1:'Неделя 1 — питание',
+      week2:'Неделя 2 — питание',
+      week3:'Неделя 3 — питание',
+      week4:'Неделя 4 — питание',
+      lunches:'Обеды — питание',
+      rules:'Правила и запасы — питание'
+    }[activeRoute] || 'Питание на 4 недели';
+
+    window.scrollTo({top:0, behavior:'instant'});
+    body.classList.remove('drawer-open');
+  }
+
+  window.addEventListener('hashchange', showRoute);
+  showRoute();
+
+  menuBtn?.addEventListener('click', () => body.classList.toggle('drawer-open'));
+  backdrop?.addEventListener('click', () => body.classList.remove('drawer-open'));
+  links.forEach(a => a.addEventListener('click', () => body.classList.remove('drawer-open')));
+</script>
+</body>
+</html>
